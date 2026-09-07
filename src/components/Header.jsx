@@ -16,9 +16,9 @@ export default function Header({ onOfflineTap }) {
         </div>
 
         {/* Row 2 — Agenda title */}
-        <p className="text-center font-bold text-lg" style={{ color: '#032D60' }}>
+        <h1 className="text-center font-bold text-lg" style={{ color: '#032D60' }}>
           {agendaTitle}
-        </p>
+        </h1>
 
         {/* Row 3 — Instructions */}
         <p className="text-sm" style={{ color: '#6B7280' }}>
@@ -37,7 +37,7 @@ export default function Header({ onOfflineTap }) {
                 href={waUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm underline py-2"
+                className="text-sm underline py-2 min-h-[44px] inline-flex items-center"
                 style={{ color: '#032D60' }}
               >
                 {contact.name}
@@ -47,7 +47,7 @@ export default function Header({ onOfflineTap }) {
                 key={contact.phone}
                 type="button"
                 onClick={onOfflineTap}
-                className="text-sm underline py-2"
+                className="text-sm underline py-2 min-h-[44px] inline-flex items-center"
                 style={{
                   color: '#032D60',
                   opacity: 0.6,

@@ -1,20 +1,17 @@
-import { useEffect, useState } from 'react'
+import { useSyncExternalStore } from 'react'
 
+// Connectivity is a device hint, not proof that a particular service is reachable.
+// Initialize on offline reload and resync across routes/resume; SF links remain operable.
+function subscribe(notify) {
+  window.addEventListener('online', notify)
+  window.addEventListener('offline', notify)
+  window.addEventListener('pageshow', notify)
+  return () => {
+    window.removeEventListener('online', notify)
+    window.removeEventListener('offline', notify)
+    window.removeEventListener('pageshow', notify)
+  }
+}
 export function useOnlineStatus() {
-  // Default true — navigator.onLine is unreliable on localhost and behind VPNs.
-  // We trust the online/offline events instead; assume online until told otherwise.
-  const [isOnline, setIsOnline] = useState(true)
-
-  useEffect(() => {
-    const up   = () => setIsOnline(true)
-    const down = () => setIsOnline(false)
-    window.addEventListener('online',  up)
-    window.addEventListener('offline', down)
-    return () => {
-      window.removeEventListener('online',  up)
-      window.removeEventListener('offline', down)
-    }
-  }, [])
-
-  return isOnline
+  return useSyncExternalStore(subscribe, () => navigator.onLine !== false, () => true)
 }

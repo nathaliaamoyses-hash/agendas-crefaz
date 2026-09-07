@@ -1,3 +1,4 @@
+import { serviceCopy } from '../data/services.js'
 import { useState } from 'react'
 
 const STORAGE_KEY = 'cnx-install-hint-dismissed'
@@ -32,12 +33,12 @@ export default function InstallHint() {
       }}
     >
       <span>
-        Adicione à tela inicial para acesso rápido e offline. Toque em Compartilhar (iPhone) ou ⋮ (Android) e em "Adicionar à tela inicial".
+        {serviceCopy.install}
       </span>
       <button
         type="button"
         onClick={dismiss}
-        aria-label="Fechar"
+        aria-label={serviceCopy.dismissInstall}
         style={{
           flexShrink: 0,
           background: 'transparent',
@@ -46,7 +47,7 @@ export default function InstallHint() {
           fontSize: 18,
           lineHeight: 1,
           color: '#032D60',
-          padding: '0 2px',
+          minWidth: 44, minHeight: 44, padding: '0 2px',
         }}
       >
         ×

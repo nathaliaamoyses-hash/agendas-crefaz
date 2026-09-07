@@ -1,0 +1,397 @@
+{
+  "_readme": "Phase 5 examples from current sources. Drafts and legacy examples are not final or verified travel content. Keep IDs stable. See CONTENT-AUTHORING.md.",
+  "destinationCard": {
+    "id": "sanFrancisco",
+    "path": "/sf",
+    "title": "In San Francisco",
+    "description": "Explore · Food · Local institutions · Free-time ideas",
+    "action": "Explore San Francisco",
+    "tone": "city",
+    "label": "BEYOND THE CONFERENCE"
+  },
+  "guideCard": {
+    "status": "draft",
+    "id": "monday",
+    "path": "/sf/monday",
+    "title": "Monday ideas",
+    "description": "If you have some free time before Dreamforce.",
+    "group": "freeTime",
+    "number": "05",
+    "dateLabel": "SEPTEMBER 14"
+  },
+  "sundayChoiceCard": {
+    "id": "both",
+    "number": "03",
+    "path": "/sf/sunday/both",
+    "content": {
+      "kind": "route",
+      "id": "sunday-both"
+    },
+    "action": "See the shorter route",
+    "tone": "city"
+  },
+  "placeCard": {
+    "id": "buena-vista",
+    "slug": "buena-vista",
+    "name": "Buena Vista",
+    "category": "restaurant",
+    "shortDescription": "A refreshment stop shared by both Sunday routes.",
+    "status": "draft",
+    "image": null,
+    "neighborhoodId": "russian-hill-waterfront",
+    "address": null,
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Buena%20Vista%2C%20San%20Francisco",
+    "externalUrl": null,
+    "reservationUrl": null,
+    "hours": null,
+    "priceIndication": null,
+    "whyGo": null,
+    "whatToOrder": null,
+    "whatToLookFor": null,
+    "bestFor": null,
+    "whereItFits": null
+  },
+  "shopCard": {
+    "id": "city-lights",
+    "slug": "city-lights",
+    "name": "City Lights",
+    "category": "shop",
+    "neighborhoodId": "north-beach",
+    "shortDescription": "A bookstore stop for the North Beach part of the week.",
+    "whereItFits": "Pair with North Beach and a nearby meal.",
+    "status": "draft",
+    "image": null,
+    "address": null,
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=City%20Lights%2C%20San%20Francisco",
+    "externalUrl": null,
+    "reservationUrl": null,
+    "hours": null,
+    "priceIndication": null,
+    "whyGo": null,
+    "whatToOrder": null,
+    "whatToLookFor": null,
+    "bestFor": null
+  },
+  "routeStopCard": {
+    "placeId": "lombard-street",
+    "guidance": null,
+    "flag": null,
+    "foodNearbyIds": [
+      "buena-vista"
+    ],
+    "durationMinutes": null
+  },
+  "routeCard": {
+    "id": "sunday-both",
+    "slug": "sunday-both",
+    "name": "Do Both",
+    "status": "draft",
+    "shortDescription": "A shorter city route, then Oracle Park for the Giants option.",
+    "image": null,
+    "bestFor": "First-timers who also want the game.",
+    "durationMinutes": null,
+    "durationLabel": null,
+    "suggestedStartTime": null,
+    "runningLateGuidance": "Prioritize getting to Oracle Park. Skip extra stops if the route is running late.",
+    "directionsUrl": null,
+    "departureTime": null,
+    "departureGuidance": "The departure target and transport plan will be set once the game and arrival time are confirmed.",
+    "arrivalTime": null,
+    "milestones": [],
+    "optionalExtensionPlaceIds": [
+      "crissy-field",
+      "golden-gate-viewpoint"
+    ],
+    "related": [
+      {
+        "kind": "activity",
+        "id": "sunday-giants"
+      }
+    ],
+    "stops": [
+      {
+        "placeId": "ferry-building",
+        "guidance": null,
+        "flag": null,
+        "foodNearbyIds": [],
+        "durationMinutes": null
+      },
+      {
+        "placeId": "cable-car",
+        "guidance": "Boarding point, line, and queue guidance will be added before the trip.",
+        "flag": null,
+        "foodNearbyIds": [],
+        "durationMinutes": null
+      },
+      {
+        "placeId": "nob-hill",
+        "guidance": null,
+        "flag": null,
+        "foodNearbyIds": [],
+        "durationMinutes": null
+      },
+      {
+        "placeId": "lombard-street",
+        "guidance": null,
+        "flag": null,
+        "foodNearbyIds": [
+          "buena-vista"
+        ],
+        "durationMinutes": null
+      },
+      {
+        "placeId": "buena-vista",
+        "guidance": null,
+        "flag": null,
+        "foodNearbyIds": [],
+        "durationMinutes": null
+      },
+      {
+        "placeId": "oracle-park",
+        "guidance": "Use the Giants guide for the group meeting point and arrival details.",
+        "flag": null,
+        "foodNearbyIds": [],
+        "durationMinutes": null
+      }
+    ]
+  },
+  "activityCard": {
+    "id": "sunday-giants",
+    "slug": "sunday-giants",
+    "name": "Giants at Oracle Park",
+    "status": "draft",
+    "shortDescription": "An option for Sunday. Game details and tickets are still to be confirmed.",
+    "image": null,
+    "date": "2026-09-13",
+    "schedule": null,
+    "placeId": "oracle-park",
+    "durationMinutes": null,
+    "bestFor": "A relaxed group afternoon.",
+    "related": [
+      {
+        "kind": "guide",
+        "id": "sunday"
+      }
+    ],
+    "meetingPlanId": "giants-meetup",
+    "afterPlanId": "sunday-dinner",
+    "arrivalTime": null,
+    "externalUrl": null,
+    "infoBlocks": [
+      {
+        "id": "transport",
+        "title": "Getting there",
+        "text": null
+      },
+      {
+        "id": "entry",
+        "title": "Entry & bags",
+        "text": null
+      },
+      {
+        "id": "weather",
+        "title": "Layers & weather",
+        "text": null
+      },
+      {
+        "id": "food",
+        "title": "Stadium food",
+        "text": null
+      },
+      {
+        "id": "view",
+        "title": "Waterfront & views",
+        "text": null
+      }
+    ],
+    "durationLabel": null,
+    "whyGo": null,
+    "optional": false,
+    "neighborhoodId": null,
+    "directionsUrl": null
+  },
+  "outingCard": {
+    "id": "sausalito-ferry",
+    "slug": "sausalito-ferry",
+    "name": "Sausalito by ferry",
+    "date": "2026-09-14",
+    "shortDescription": "A ferry outing with time for lunch and a waterfront walk.",
+    "bestFor": "A small group of 4–6 people.",
+    "placeId": null,
+    "durationLabel": null,
+    "status": "draft",
+    "image": null,
+    "schedule": null,
+    "durationMinutes": null,
+    "whyGo": null,
+    "optional": false,
+    "neighborhoodId": null,
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Sausalito%2C%20California",
+    "related": [],
+    "meetingPlanId": null,
+    "afterPlanId": null,
+    "arrivalTime": null,
+    "externalUrl": "https://www.goldengate.org/ferry/schedules-maps/",
+    "infoBlocks": [
+      {
+        "id": "detail-1",
+        "title": "Outbound ferry",
+        "text": null
+      },
+      {
+        "id": "detail-2",
+        "title": "Return ferry",
+        "text": null
+      },
+      {
+        "id": "detail-3",
+        "title": "Lunch",
+        "text": null
+      },
+      {
+        "id": "detail-4",
+        "title": "Waterfront walk",
+        "text": null
+      }
+    ]
+  },
+  "neighborhoodCard": {
+    "id": "north-beach",
+    "slug": "north-beach",
+    "name": "North Beach",
+    "shortDescription": "Connect a bookstore stop with a nearby meal.",
+    "status": "draft",
+    "image": null,
+    "whyGo": null,
+    "related": [
+      {
+        "kind": "place",
+        "id": "city-lights"
+      },
+      {
+        "kind": "place",
+        "id": "original-joes"
+      },
+      {
+        "kind": "guide",
+        "id": "explore"
+      }
+    ]
+  },
+  "practicalTipCard": {
+    "id": "cable-cars",
+    "slug": "cable-cars",
+    "name": "Cable cars",
+    "category": "transport",
+    "shortDescription": "Check the operator’s payment guidance before the ride. The Sunday boarding point and line are still being finalized.",
+    "externalUrl": "https://www.sfmta.com/fares/cable-car-single-ride",
+    "externalLabel": "Cable-car fares & payment",
+    "status": "draft",
+    "image": null,
+    "infoBlocks": [
+      {
+        "id": "detail-1",
+        "title": "Useful routes",
+        "text": null
+      },
+      {
+        "id": "detail-2",
+        "title": "Queue guidance",
+        "text": null
+      }
+    ],
+    "related": [
+      {
+        "kind": "guide",
+        "id": "sunday"
+      }
+    ]
+  },
+  "referenceCard": {
+    "kind": "place",
+    "id": "city-lights"
+  },
+  "guidePage": {
+    "eyebrow": "MONDAY, SEPTEMBER 14",
+    "framing": null,
+    "sections": [
+      {
+        "id": "ideas",
+        "title": "Choose your pace",
+        "description": "Optional ideas before Dreamforce. These are not required hosted activities.",
+        "presentation": "cards",
+        "entries": [
+          {
+            "kind": "activity",
+            "id": "sausalito-ferry"
+          },
+          {
+            "kind": "activity",
+            "id": "golden-gate-bike"
+          },
+          {
+            "kind": "activity",
+            "id": "presidio-crissy"
+          },
+          {
+            "kind": "activity",
+            "id": "ferry-salesforce-park"
+          }
+        ]
+      }
+    ]
+  },
+  "sharedPlanCard": {
+    "id": "sunday-dinner",
+    "name": "Sunday dinner",
+    "shortDescription": "A shared dinner is planned; venue and timing are to be confirmed.",
+    "slug": "sunday-dinner",
+    "status": "draft",
+    "image": null,
+    "schedule": null,
+    "subject": null,
+    "meetingPlaceId": null,
+    "instructions": null
+  },
+  "dayPlan": {
+    "date": "2026-09-13",
+    "primary": [
+      {
+        "kind": "guide",
+        "id": "sunday"
+      }
+    ],
+    "secondary": [
+      {
+        "kind": "activity",
+        "id": "sunday-giants"
+      }
+    ],
+    "evening": [
+      {
+        "kind": "sharedPlan",
+        "id": "sunday-dinner"
+      }
+    ],
+    "notices": []
+  },
+  "legacyAgendaCard": {
+    "id": "tue-planning-session",
+    "eventCategory": "suggested",
+    "title": "Inter @ Salesforce Tower — Agentic CRM Ideation",
+    "date": "2026-06-02",
+    "startTime": "09:00",
+    "endTime": "12:00",
+    "room": null,
+    "area": "Salesforce Tower",
+    "type": "Planning Session",
+    "topic": null,
+    "summary": "A morning with the Salesforce team to discuss agentic marketing, hyperpersonalization, intelligent orchestration, marketing operations, and our roadmap.",
+    "participants": null,
+    "registrationRequired": false,
+    "transitionWarning": null,
+    "mapsUrl": "https://maps.google.com/?q=333+W+Wolf+Point+Plaza,+Chicago,+IL+60654",
+    "url": null,
+    "spotifyUrl": null
+  }
+}

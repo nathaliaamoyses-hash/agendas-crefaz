@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react'
 import { formatEventDate } from '../utils/date.js'
 import { useOnlineStatus } from '../hooks/useOnlineStatus.js'
 import { categoryColors } from '../config.js'
@@ -18,6 +19,37 @@ const calBtnBase = {
 }
 
 export default function EventDetail({ event, isFavorited, onToggleFavorite, onClose }) {
+  const dialogRef = useRef(null)
+  const closeRef = useRef(onClose)
+  closeRef.current = onClose
+  useEffect(() => {
+    const previous = document.activeElement
+    const shell = document.getElementById('page-content')?.parentElement
+    const siblings = shell ? Array.from(shell.children).filter(el => el.id !== 'page-content') : []
+    const main = document.getElementById('page-content')
+    // The dialog is inside main. Make its sibling agenda content inert, plus shell navigation.
+    const content = main ? Array.from(main.children).filter(el => !el.contains(dialogRef.current)) : []
+    const targets = [...siblings, ...content]
+    const prior = targets.map(el => [el, el.inert])
+    targets.forEach(el => { el.inert = true })
+    dialogRef.current?.focus()
+    function keydown(e) {
+      if (e.key === 'Escape') { e.preventDefault(); closeRef.current(); return }
+      if (e.key !== 'Tab') return
+      const buttons = Array.from(dialogRef.current.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]'))
+      if (!buttons.length) { e.preventDefault(); return }
+      const first = buttons[0], last = buttons.at(-1)
+      if (e.shiftKey && (document.activeElement === first || document.activeElement === dialogRef.current)) { e.preventDefault(); last.focus() }
+      else if (!e.shiftKey && (document.activeElement === last || document.activeElement === dialogRef.current)) { e.preventDefault(); first.focus() }
+    }
+    const dialog = dialogRef.current
+    dialog.addEventListener('keydown', keydown)
+    return () => {
+      dialog.removeEventListener('keydown', keydown)
+      prior.forEach(([el, inert]) => { el.inert = inert })
+      if (previous?.isConnected) previous.focus({ preventScroll: true })
+    }
+  }, [])
   const isOnline = useOnlineStatus()
   const { accent, tint } = categoryColors[event.eventCategory] || categoryColors.suggested
   const label = CATEGORY_LABELS[event.eventCategory] || 'Session'
@@ -69,9 +101,14 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
       style={{ background: 'rgba(0, 0, 0, 0.4)' }}
     >
       <div
+        ref={dialogRef}
+        role="dialog"
+        aria-modal="true"
+        aria-label={event.title}
+        tabIndex={-1}
         onClick={(e) => e.stopPropagation()}
         className="bg-white w-full rounded-t-2xl overflow-y-auto"
-        style={{ maxHeight: '90vh' }}
+        style={{ maxHeight: '90dvh', maxWidth: '64rem', paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
       >
         <div className="relative p-5">
           <button
@@ -124,6 +161,7 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
               type="button"
               onClick={() => onToggleFavorite(event.id)}
               aria-label={isFavorited ? 'Remove from My Schedule' : 'Add to My Schedule'}
+        aria-pressed={isFavorited}
               className="flex items-center justify-center shrink-0"
               style={{
                 width: 44,

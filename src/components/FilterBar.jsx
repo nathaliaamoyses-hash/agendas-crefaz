@@ -8,7 +8,7 @@ const FILTERS = [
 
 export default function FilterBar({ activeFilter, onFilterChange }) {
   return (
-    <nav
+    <nav aria-label="Agenda filters"
       className="w-full bg-white border-b border-gray-200"
       style={{ overflowX: 'auto', whiteSpace: 'nowrap' }}
     >
@@ -19,6 +19,7 @@ export default function FilterBar({ activeFilter, onFilterChange }) {
             <button
               key={f.value}
               type="button"
+              aria-pressed={active}
               onClick={() => onFilterChange(f.value)}
               className="px-4 text-sm font-medium"
               style={{

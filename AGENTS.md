@@ -1,4 +1,4 @@
-# Inter @ Salesforce Connections 2026 — Agenda PWA
+# AGENTS.md — Inter @ Salesforce Connections 2026
 
 ## Current extension and approval gates
 
@@ -26,7 +26,15 @@ hosting configuration remain intact pending deliberate migration.
 The Connections-specific reference below applies to the preserved agenda;
 it is not the schema or timezone for new San Francisco content.
 
+## Scope
+
+These project instructions apply to Codex and other coding agents working anywhere in this repository. Adapted from the existing `CLAUDE.md`; keep shared project guidance consistent between the two files.
+
 Mobile-first progressive web app for the Inter account team at Salesforce Connections 2026 in Chicago. Displays a filterable event agenda, supports offline browsing, and surfaces WhatsApp contact links and calendar export.
+
+## Repository Scope
+
+The root app is the Connections 2026 agenda described below. `agendas/df26/` is a separate Dreamforce app with its own package, source, and Vite configuration. Run commands from the app you are changing. The event schema, branding, and layout below describe the root app; inspect the corresponding DF26 files before applying them there.
 
 ## Stack
 
@@ -38,7 +46,7 @@ Mobile-first progressive web app for the Inter account team at Salesforce Connec
 ## Commands
 
 ```bash
-npm run dev      # dev server → http://localhost:5173/agendas/
+npm run dev      # dev server → http://localhost:5173/
 npm run build    # production build → dist/
 npm run preview  # serve dist/ locally
 ```
@@ -129,22 +137,22 @@ All user-visible copy and contact info lives here. Never hardcode these values i
 
 ## Logos and Hero Image
 
-Drop files into `src/assets/`, then update `src/components/Header.jsx` (rows 1 and 5):
+Logo assets are already imported in `src/components/Header.jsx`. Update those assets or imports when replacing logos, and preserve meaningful alt text. Import the hero image in `src/config.js` and assign it to `heroImage`; `Header.jsx` renders it automatically.
 
-- Salesforce logo: replace the grey placeholder `<div>` with `<img src={salesforceLogo} alt="Salesforce" className="h-7" />`
-- Inter logo: same pattern
-- Hero image: import the file in `config.js` and assign to `heroImage` — `Header.jsx` will render it automatically
+## Validation
+
+Run `npm run build` after code or configuration changes. `npm test` runs Node regression checks. No lint script is configured. For UI changes, check the affected flow in the browser, including mobile layout and relevant offline behavior.
 
 ## Deployment
 
-The app builds to `dist/` and is served from the `/agendas/` sub-path (set in `vite.config.js`). To deploy:
+The app builds to `dist/`. The current `vite.config.js` uses `base: '/'`, with PWA `start_url` and `scope` also set to `/`. Preserve this alignment when changing hosting paths.
 
-```bash
-npm run build
-# push dist/ to the gh-pages branch, or let CI handle it
-```
+Both deployment workflows trigger on pushes to `main` and use Node.js 22 with `npm ci` and `npm run build`:
 
-After a push to `main`, GitHub Actions redeploys in approximately 2 minutes.
+- `.github/workflows/deploy.yml` builds the root app and publishes `dist/` to GitHub Pages.
+- `.github/workflows/deploy-df26.yml` builds `agendas/df26/` and publishes its `dist/` to `gh-pages-df26`.
+
+Inspect the relevant workflow before changing deployment behavior.
 
 ## Branch
 

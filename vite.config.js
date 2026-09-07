@@ -1,3 +1,4 @@
+import { trip } from './src/data/trip.js';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 import { VitePWA } from 'vite-plugin-pwa';
@@ -10,9 +11,9 @@ export default defineConfig({
       registerType: 'autoUpdate',
       includeAssets: ['icons/icon-192.png', 'icons/icon-512.png'],
       manifest: {
-        name: 'Inter @ Salesforce Connections 2026',
-        short_name: 'CNX Agenda',
-        description: 'Inter event agenda for Salesforce Connections 2026',
+        name: trip.title,
+        short_name: trip.pwa.shortName,
+        description: trip.pwa.description,
         theme_color: '#00A1E0',
         background_color: '#ffffff',
         display: 'standalone',
@@ -38,7 +39,7 @@ export default defineConfig({
         ],
       },
       workbox: {
-        globPatterns: ['**/*.{js,css,html,png,svg,ico,woff,woff2}'],
+        globPatterns: ['**/*.{js,css,html,png,jpg,jpeg,webp,svg,ico,woff,woff2}'],
       },
     }),
   ],
