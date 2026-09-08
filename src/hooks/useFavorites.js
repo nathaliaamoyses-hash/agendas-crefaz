@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { client } from '#client-config'
+import { trackAgenda } from '../data/conference.js'
 const STORAGE_KEY = client.favoritesKey
 
 function readInitial() {
@@ -9,7 +10,7 @@ function readInitial() {
     if (!raw) return new Set()
     const parsed = JSON.parse(raw)
     if (!Array.isArray(parsed)) return new Set()
-    return new Set(parsed)
+    return trackAgenda.normalizeFavorites(new Set(parsed))
   } catch {
     return new Set()
   }
@@ -28,10 +29,7 @@ export function useFavorites() {
 
   function toggleFavorite(id) {
     setFavorites((prev) => {
-      const next = new Set(prev)
-      if (next.has(id)) next.delete(id)
-      else next.add(id)
-      return next
+      return trackAgenda.toggle(prev, id)
     })
   }
 

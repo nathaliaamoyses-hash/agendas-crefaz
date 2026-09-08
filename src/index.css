@@ -380,3 +380,14 @@ body {
 .map-anchor-key{list-style:decimal;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 28px;padding:16px 16px 16px 30px;font-size:14px}
 .map-directions{list-style:none;padding:0;display:grid;gap:12px}.map-directions li{background:#fff;border:1px solid #d6e1e5;border-radius:10px;padding:12px}.map-directions li>span{display:block;font-size:13px;font-weight:700}
 @media(max-width:500px){.conference-header{padding:20px 16px}.conference-contacts{gap:clamp(6px,2vw,10px);flex-wrap:nowrap}.conference-contacts a{font-size:clamp(.75rem,3.5vw,.875rem);white-space:nowrap;flex-shrink:0}.conference-views button{flex:1 1 calc(50% - 6px)}.map-anchor-key{grid-template-columns:1fr}}
+
+/* Optional track selection, enabled by the selected client configuration. */
+.agenda-track-selector{margin:20px 16px;padding:16px;border:1px solid #cbd9e2;border-radius:12px;background:#fff;min-width:0}
+.agenda-track-selector legend{font-weight:700;color:#032d60;padding:0 6px;font-size:16px}
+.agenda-track-selector p{font-size:14px;line-height:1.5;color:#526271;margin:0 0 12px}
+.agenda-track-options{display:flex;gap:8px;flex-wrap:wrap}
+.agenda-track-options button{flex:1 1 130px;min-height:44px;padding:10px 12px;border:1px solid #bacbd7;border-radius:8px;background:#fff;color:#032d60;font-size:14px;font-weight:600;cursor:pointer}
+.agenda-track-options button[aria-pressed="true"]{background:#032d60;border-color:#032d60;color:#fff}
+.agenda-track-options button:focus-visible{outline:3px solid #00a1e0;outline-offset:3px}
+.home-page .agenda-track-selector{margin:20px 0}
+.conference-client-brand-wide img{width:112px;height:auto;max-height:36px;border-radius:0}

@@ -14,7 +14,7 @@ import { trip } from '../src/data/trip.js';
 test('build selection resolves each client and keeps Mercantil as the default', async () => {
   const previous=process.env.AGENDA_CLIENT;
   try {
-    for (const id of ['banco-mercantil','acerto',undefined]) {
+    for (const id of ['banco-mercantil','acerto','banco-inter',undefined]) {
       if(id) process.env.AGENDA_CLIENT=id; else delete process.env.AGENDA_CLIENT;
       const config=await configure({mode:'test'});
       const expected=id || 'banco-mercantil';

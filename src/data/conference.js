@@ -1,4 +1,7 @@
 import { events } from './events.js';
+import { client } from '#client-config';
+import { createTrackAgenda } from '../utils/tracks.js';
+export const trackAgenda = createTrackAgenda(events, client.tracks);
 import { brazilSessions } from './brazil.js';
 export const conferenceCopy = {
   views: [
@@ -18,8 +21,8 @@ export const conferenceCopy = {
 };
 // Stable source IDs remain intact. Repeated catalog sessions at different times are distinct live choices.
 export const liveSessions = [...events, ...brazilSessions];
-export function sessionsForView(view, favorites = new Set()) {
+export function sessionsForView(view, favorites = new Set(), track = null) {
   if (view === 'brazil') return brazilSessions;
-  if (view === 'mySchedule') return liveSessions.filter(event => favorites.has(event.id));
-  return events;
+  if (view === 'mySchedule') return [...trackAgenda.saved(favorites, track), ...brazilSessions.filter(event => favorites.has(event.id))];
+  return trackAgenda.forTrack(track);
 }

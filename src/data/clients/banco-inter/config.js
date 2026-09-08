@@ -1,0 +1,15 @@
+export const client = {
+  id: 'banco-inter',
+  name: 'Inter',
+  agendaTitle: 'Inter @ Dreamforce 2026',
+  logo: '/icons/inter-header-v1.svg',
+  appIcons: { small: '/icons/inter-df192-v1.png', large: '/icons/inter-df512-v1.png' },
+  logoWide: true,
+  tracks: [{ id: 'business', label: 'CRM Business' }, { id: 'operations', label: 'CRM Operations' }],
+  trackPreferenceKey: 'df26-banco-inter-track',
+  heroImage: null,
+  whatsappNumber: '5511934079641',
+  teamContacts: [{ name: 'Terence Reis', phone: '5511934079641' }, { name: 'Fabiana Maniero', phone: '5511930227247' }, { name: 'Léo Boaventura', phone: '5511989214117' }],
+  favoritesKey: 'df26-banco-inter-favorites',
+  sundayPreferenceKey: 'df26-banco-inter-sunday-preference',
+};
