@@ -25,7 +25,7 @@ export const sfCopy = {
   imageAlt: 'San Francisco waterfront and Bay Bridge at dusk',
   sundayLabel: 'SUNDAY, SEPTEMBER 13',
   sundayTitle: 'A day for the city.',
-  sundayDescription: 'A classic San Francisco route, an afternoon at Oracle Park, or a little of both.',
+  sundayDescription: "There’s time to enjoy the city before the conference begins. Spend Sunday out exploring or at the ballpark, and join us for dinner at EPIC Steak that evening.",
   sundayAction: 'Explore Sunday',
   guideTitle: 'Make the most of your free time',
   freeTimeTitle: 'If you have time',
@@ -35,14 +35,72 @@ export const sfCopy = {
 }
 
 export const sfSections = [
-  { status: 'draft', id: 'sunday', path: '/sf/sunday', title: 'Sunday in San Francisco', description: 'Classic SF, Giants, or both — with dinner together afterward.', group: 'featured', number: '01' },
-  { status: 'draft', id: 'eatDrink', path: '/sf/eat-drink', title: 'Eat & Drink', description: 'San Francisco institutions, quick local stops, and places for a drink.', group: 'guide', number: '02' },
-  { status: 'draft', id: 'onlyInSf', path: '/sf/only-in-sf', title: 'Only in San Francisco', description: 'Local shops and cultural institutions worth a detour.', group: 'guide', number: '03' },
-  { status: 'draft', id: 'explore', path: '/sf/explore', title: 'Explore San Francisco', description: 'Classic routes, landmarks, and a little neighborhood context.', group: 'guide', number: '04' },
-  { status: 'draft', id: 'monday', path: '/sf/monday', title: 'Monday ideas', description: 'If you have some free time before Dreamforce.', group: 'freeTime', number: '05', dateLabel: 'SEPTEMBER 14' },
-  { status: 'draft', id: 'friday', path: '/sf/friday', title: 'Friday ideas', description: 'Still in town? A few ways to spend the day.', group: 'freeTime', number: '06', dateLabel: 'SEPTEMBER 18' },
-  { status: 'draft', id: 'practical', path: '/sf/practical', title: 'Practical SF', description: 'Layers, getting around, airport travel, and useful local links.', group: 'practical', number: '07' },
-]
+  {
+    "status": "ready",
+    "id": "sunday",
+    "path": "/sf/sunday",
+    "title": "Sunday in San Francisco",
+    "description": "There’s time to enjoy the city before the conference begins. Spend Sunday out exploring or at the ballpark, and join us for dinner at EPIC Steak that evening.",
+    "group": "featured",
+    "number": "01"
+  },
+  {
+    "status": "ready",
+    "id": "eatDrink",
+    "path": "/sf/eat-drink",
+    "title": "Eat & Drink",
+    "description": "San Francisco takes its food seriously. From a sit-down meal to a drink at the end of the day, these are places we’d be happy to send you.",
+    "group": "guide",
+    "number": "02"
+  },
+  {
+    "status": "ready",
+    "id": "onlyInSf",
+    "path": "/sf/only-in-sf",
+    "title": "Only in San Francisco",
+    "description": "Set aside some time to browse. These shops have enough character to make the visit worthwhile, with plenty of things you might be tempted to take home.",
+    "group": "guide",
+    "number": "03"
+  },
+  {
+    "status": "ready",
+    "id": "explore",
+    "path": "/sf/explore",
+    "title": "Explore San Francisco",
+    "description": "San Francisco rewards a bit of wandering. Take in the views, follow a street that catches your eye, and give yourself time to enjoy the city between stops.",
+    "group": "guide",
+    "number": "04"
+  },
+  {
+    "status": "ready",
+    "id": "monday",
+    "path": "/sf/monday",
+    "title": "Monday Ideas",
+    "description": "If your Monday is free, enjoy a day away from conference rooms. There’s plenty to do without filling every hour, so leave yourself time to stop and enjoy it.",
+    "group": "freeTime",
+    "number": "05",
+    "dateLabel": "SEPTEMBER 14"
+  },
+  {
+    "status": "ready",
+    "id": "friday",
+    "path": "/sf/friday",
+    "title": "Friday Ideas",
+    "description": "If you’re staying on Friday, there’s no need to rush into another full day of plans. Pick something you’d enjoy and make the most of a little more time in San Francisco.",
+    "group": "freeTime",
+    "number": "06",
+    "dateLabel": "SEPTEMBER 18"
+  },
+  {
+    "status": "ready",
+    "id": "practical",
+    "path": "/sf/practical",
+    "title": "Practical SF",
+    "description": "A warm layer and a little local knowledge go a long way in San Francisco. Here’s what’s useful to know before you head out for the day.",
+    "group": "practical",
+    "number": "07"
+  }
+];
 
 export const weatherCopy = {
   location: 'SAN FRANCISCO WEATHER',

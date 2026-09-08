@@ -16,7 +16,7 @@ import { getRoute } from './routing/routes.js'
 export default function App() {
   const path = useHashRoute()
   const route = getRoute(path)
-  // Keep agenda choices when navigating away and back; retain the existing storage key.
+  // Keep this client’s agenda choices when navigating away and back.
   const [filter, setFilter] = useState('all')
   const [selectedTripDate, setSelectedTripDate] = useState(null)
   const [favorites, toggleFavorite] = useFavorites()

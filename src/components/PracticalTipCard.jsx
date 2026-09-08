@@ -1,4 +1,4 @@
-import { ContentImage, DraftLabel, ExternalAction } from './ContentPrimitives.jsx'
+import { ContentImage, DraftLabel, ExternalAction, TextContent } from './ContentPrimitives.jsx'
 import { sfGuideCopy as copy } from '../data/sfGuides.js'
 import { contentPath } from '../utils/content.js'
 import { routeHref } from '../routing/routes.js'
@@ -10,7 +10,7 @@ export default function PracticalTipCard({ tip, sources }) {
       <DraftLabel status={tip.status} />
       <h3>{tip.name}</h3>
       <p>{tip.shortDescription}</p>
-      {tip.infoBlocks.length > 0 && <details className="practical-details"><summary>{copy.detailsTitle}</summary><dl className="place-facts">{tip.infoBlocks.map(block => <div key={block.id}><dt>{block.title}</dt><dd>{block.text ?? copy.infoPending}</dd></div>)}</dl></details>}
+      {tip.infoBlocks.length > 0 && <details className="practical-details"><summary>{copy.detailsTitle}</summary><dl className="place-facts">{tip.infoBlocks.map(block => <div key={block.id}><dt>{block.title}</dt><dd><TextContent text={block.text} /></dd></div>)}</dl></details>}
       <div className="content-actions"><ExternalAction href={tip.externalUrl}>{tip.externalLabel ?? copy.official}</ExternalAction>
         {tip.related.map(reference => {
           const content = sources[reference.kind]?.find(entry => entry.id === reference.id)

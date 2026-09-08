@@ -10,7 +10,7 @@ const sources = createContentSources()
 export default function SundayDetailPage({ choiceId }) {
   const choice = sunday.choices.find(item => item.id === choiceId)
   const content = resolveContent(choice.content, sources)
-  const dinnerId = choice.content.kind === 'activity' ? content.afterPlanId : sunday.dinnerId
+  const dinnerId = choice.content.kind === 'activity' ? (content.afterPlanId ?? sunday.dinnerId) : sunday.dinnerId
   const dinner = sources.sharedPlan.find(plan => plan.id === dinnerId)
   return (
     <div className="companion-page sunday-detail-page">

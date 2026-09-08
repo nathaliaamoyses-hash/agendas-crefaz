@@ -1,3 +1,5 @@
+> September 8: approved content is integrated. Place display ends at bestFor, with a single linked address; nullable hours/price/website/reservation/whereItFits fields stay null. Roundup is a separate content type; legacy place:view-bar-pick and place:cocktail-pick references resolve to its one card. Plain text bullet lines render as lists; lines prefixed with ## render as subheadings matching the fact labels. Thursday dinner remains draft/TBD. See INTEGRATION-2026-09-08.md.
+
 # Dreamforce / San Francisco — content authoring reference
 
 Version: Phase 6, September 7, 2026. This reference covers the implemented companion cards, shared records, and weather presentation. Editorial content remains draft. All six implementation phases are complete; final Dreamforce agenda migration and release require separate work.

@@ -1,13 +1,13 @@
-/** @type {import('./schema.js').Neighborhood[]} */
+// Approved content integrated September 2026. Preserve record IDs.
 export const neighborhoods = [
   {
     "id": "union-square",
     "slug": "union-square",
     "name": "Union Square",
-    "shortDescription": "A base for a short dining or shopping detour.",
-    "status": "draft",
+    "shortDescription": "San Francisco’s central shopping and hotel district, with a lively public square, specialty shops and established restaurants on the surrounding downtown blocks.",
+    "status": "ready",
     "image": null,
-    "whyGo": null,
+    "whyGo": "Come for a mix of shopping and older San Francisco institutions within a compact downtown area. Gump’s brings decorative arts and gifts, while John’s Grill offers a classic dining setting. The square is a useful orientation point; the linked places are on nearby streets as well as around the square itself.",
     "related": [
       {
         "kind": "place",
@@ -15,11 +15,11 @@ export const neighborhoods = [
       },
       {
         "kind": "place",
-        "id": "napa-valley-winery-exchange"
+        "id": "loris-diner"
       },
       {
-        "kind": "guide",
-        "id": "explore"
+        "kind": "place",
+        "id": "gumps"
       }
     ]
   },
@@ -27,10 +27,10 @@ export const neighborhoods = [
     "id": "embarcadero",
     "slug": "embarcadero",
     "name": "Embarcadero",
-    "shortDescription": "Waterfront context for the Ferry Building and a flexible walk.",
-    "status": "draft",
+    "shortDescription": "The city’s eastern waterfront brings together historic piers, ferry landings, food stops and broad views across San Francisco Bay.",
+    "status": "ready",
     "image": null,
-    "whyGo": null,
+    "whyGo": "The Ferry Building gives you plenty to browse and taste, while the waterfront promenade offers room to walk and watch the boats. Ozumo adds a Japanese dining option near the shore. For a different perspective, the Ferry Building + Salesforce Park idea continues inland to the rooftop park.",
     "related": [
       {
         "kind": "place",
@@ -41,8 +41,12 @@ export const neighborhoods = [
         "id": "embarcadero"
       },
       {
-        "kind": "guide",
-        "id": "explore"
+        "kind": "place",
+        "id": "ozumo"
+      },
+      {
+        "kind": "activity",
+        "id": "ferry-salesforce-park"
       }
     ]
   },
@@ -50,18 +54,18 @@ export const neighborhoods = [
     "id": "north-beach",
     "slug": "north-beach",
     "name": "North Beach",
-    "shortDescription": "Connect a bookstore stop with a nearby meal.",
-    "status": "draft",
+    "shortDescription": "Italian cafes, independent bookselling and Beat Generation history give North Beach a lively, distinctive character around Columbus Avenue.",
+    "status": "ready",
     "image": null,
-    "whyGo": null,
+    "whyGo": "City Lights is a good reason to come, with the neighborhood’s literary history continuing beyond the bookshop into its streets and cafes. Leave room to browse and choose a coffee or meal around Columbus Avenue. Washington Square offers an outdoor pause among the surrounding neighborhood streets.",
     "related": [
       {
         "kind": "place",
         "id": "city-lights"
       },
       {
-        "kind": "place",
-        "id": "original-joes"
+        "kind": "guide",
+        "id": "onlyInSf"
       },
       {
         "kind": "guide",
@@ -73,10 +77,10 @@ export const neighborhoods = [
     "id": "russian-hill-waterfront",
     "slug": "russian-hill-waterfront",
     "name": "Russian Hill / Fisherman’s Wharf",
-    "shortDescription": "The Lombard Street and Buena Vista portion of the Sunday route.",
-    "status": "draft",
+    "shortDescription": "Russian Hill’s steep residential streets descend toward Fisherman’s Wharf, where busy visitor attractions and waterfront promenades bring a different pace.",
+    "status": "ready",
     "image": null,
-    "whyGo": null,
+    "whyGo": "This area combines the crooked block of Lombard Street with Buena Vista, Ghirardelli Square and the Aquatic Park waterfront. Russian Hill rewards walking with views, but the slopes and steps take effort; down by the Wharf, the emphasis shifts to the bay, food and people-watching. Choose the part that appeals to you or use the Sunday route for the connections.",
     "related": [
       {
         "kind": "place",
@@ -91,8 +95,8 @@ export const neighborhoods = [
         "id": "ghirardelli-waterfront"
       },
       {
-        "kind": "guide",
-        "id": "explore"
+        "kind": "route",
+        "id": "sunday-classic"
       }
     ]
   },
@@ -100,10 +104,10 @@ export const neighborhoods = [
     "id": "marina-presidio",
     "slug": "marina-presidio",
     "name": "Marina / Presidio",
-    "shortDescription": "The scenic end of the full Sunday route.",
-    "status": "draft",
+    "shortDescription": "The Marina’s neighborhood streets and Palace of Fine Arts lead toward the Presidio’s expansive parkland, bayfront paths and Golden Gate views.",
+    "status": "ready",
     "image": null,
-    "whyGo": null,
+    "whyGo": "Come for the lagoon and rotunda at the Palace of Fine Arts, open space at Crissy Field, or a longer visit toward the bridge. The Presidio is a former military post within the national park system, with trails and scenery spread across a large area. Pick a section that suits your energy; reaching the bridge from the shoreline includes an uphill stretch.",
     "related": [
       {
         "kind": "place",
@@ -118,8 +122,8 @@ export const neighborhoods = [
         "id": "golden-gate-viewpoint"
       },
       {
-        "kind": "guide",
-        "id": "explore"
+        "kind": "activity",
+        "id": "presidio-crissy"
       }
     ]
   },
@@ -127,10 +131,10 @@ export const neighborhoods = [
     "id": "haight-ashbury",
     "slug": "haight-ashbury",
     "name": "Haight-Ashbury",
-    "shortDescription": "Neighborhood context for a visit to Amoeba Music.",
-    "status": "draft",
+    "shortDescription": "Colorful Victorian buildings, vintage shops and music culture keep the Haight connected to its place in San Francisco’s 1960s counterculture.",
+    "status": "ready",
     "image": null,
-    "whyGo": null,
+    "whyGo": "Amoeba Music gives record lovers a reason to linger, and the surrounding Upper Haight offers vintage browsing and distinctive storefronts. The Haight and Ashbury intersection is the familiar landmark, but the appeal is in exploring the street around it. Allow for transport from downtown; this is a separate neighborhood outing.",
     "related": [
       {
         "kind": "place",
@@ -146,4 +150,4 @@ export const neighborhoods = [
       }
     ]
   }
-]
+];

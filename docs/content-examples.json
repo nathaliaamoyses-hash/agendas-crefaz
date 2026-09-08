@@ -1,5 +1,5 @@
 {
-  "_readme": "Phase 5 examples from current sources. Drafts and legacy examples are not final or verified travel content. Keep IDs stable. See CONTENT-AUTHORING.md.",
+  "_readme": "Current integrated examples. Preserve IDs and nullable fields; Thursday dinner remains TBD. See CONTENT-AUTHORING.md.",
   "destinationCard": {
     "id": "sanFrancisco",
     "path": "/sf",
@@ -10,11 +10,11 @@
     "label": "BEYOND THE CONFERENCE"
   },
   "guideCard": {
-    "status": "draft",
+    "status": "ready",
     "id": "monday",
     "path": "/sf/monday",
-    "title": "Monday ideas",
-    "description": "If you have some free time before Dreamforce.",
+    "title": "Monday Ideas",
+    "description": "If your Monday is free, enjoy a day away from conference rooms. There’s plenty to do without filling every hour, so leave yourself time to stop and enjoy it.",
     "group": "freeTime",
     "number": "05",
     "dateLabel": "SEPTEMBER 14"
@@ -35,20 +35,20 @@
     "slug": "buena-vista",
     "name": "Buena Vista",
     "category": "restaurant",
-    "shortDescription": "A refreshment stop shared by both Sunday routes.",
-    "status": "draft",
+    "status": "ready",
+    "shortDescription": "Make this a waterfront pause for Irish coffee, with a meal available if you want a longer break near the Powell–Hyde terminus.",
     "image": null,
     "neighborhoodId": "russian-hill-waterfront",
-    "address": null,
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Buena%20Vista%2C%20San%20Francisco",
+    "address": "2765 Hyde Street at Beach Street, San Francisco, CA 94109",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=2765%20Hyde%20Street%20at%20Beach%20Street%2C%20San%20Francisco%2C%20CA%2094109",
     "externalUrl": null,
     "reservationUrl": null,
     "hours": null,
     "priceIndication": null,
-    "whyGo": null,
-    "whatToOrder": null,
+    "whyGo": "Irish coffee gives this waterfront cafe a specialty worth seeking out.",
+    "whatToOrder": "Irish coffee; for a meal, consider the crab omelet or a burger. Check the day’s menu before ordering.",
     "whatToLookFor": null,
-    "bestFor": null,
+    "bestFor": "A drink break or casual meal near the waterfront.",
     "whereItFits": null
   },
   "shopCard": {
@@ -56,178 +56,205 @@
     "slug": "city-lights",
     "name": "City Lights",
     "category": "shop",
-    "neighborhoodId": "north-beach",
-    "shortDescription": "A bookstore stop for the North Beach part of the week.",
-    "whereItFits": "Pair with North Beach and a nearby meal.",
-    "status": "draft",
+    "status": "ready",
+    "shortDescription": "An independent bookstore and publisher in North Beach, closely tied to San Francisco’s Beat literary history.",
     "image": null,
-    "address": null,
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=City%20Lights%2C%20San%20Francisco",
+    "neighborhoodId": "north-beach",
+    "address": "261 Columbus Avenue, San Francisco, CA",
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=261%20Columbus%20Avenue%2C%20San%20Francisco%2C%20CA",
     "externalUrl": null,
     "reservationUrl": null,
     "hours": null,
     "priceIndication": null,
-    "whyGo": null,
+    "whyGo": "The shelves connect the city’s literary past with a broad selection of contemporary writing and independent publishers.",
     "whatToOrder": null,
-    "whatToLookFor": null,
-    "bestFor": null
+    "whatToLookFor": "The poetry room, Beat literature and City Lights’ own poetry titles, plus fiction in translation and books from smaller publishers.",
+    "bestFor": "Readers, poetry lovers and visitors interested in San Francisco’s literary culture.",
+    "whereItFits": null
   },
   "routeStopCard": {
     "placeId": "lombard-street",
-    "guidance": null,
+    "guidance": "Arrive at Lombard & Hyde, at the top of the crooked block. Use the pedestrian steps beside the road to descend to Leavenworth for the view looking uphill. Continue north on Leavenworth, then west on Beach to Buena Vista; allow another 15 minutes. Stay on the sidewalks and keep the roadway clear.",
     "flag": null,
     "foodNearbyIds": [
       "buena-vista"
     ],
-    "durationMinutes": null
+    "durationMinutes": 20
   },
   "routeCard": {
     "id": "sunday-both",
     "slug": "sunday-both",
-    "name": "Do Both",
-    "status": "draft",
-    "shortDescription": "A shorter city route, then Oracle Park for the Giants option.",
+    "name": "Classic SF + Giants at the Park",
+    "status": "ready",
+    "shortDescription": "See the Ferry Building, ride a Cable Car and explore the hills before lunch at Buena Vista and an afternoon at Oracle Park.",
     "image": null,
-    "bestFor": "First-timers who also want the game.",
-    "durationMinutes": null,
-    "durationLabel": null,
-    "suggestedStartTime": null,
-    "runningLateGuidance": "Prioritize getting to Oracle Park. Skip extra stops if the route is running late.",
+    "bestFor": "Visitors who want city highlights and baseball, with a firm afternoon cutoff and several hilly walks.",
+    "durationMinutes": 320,
+    "durationLabel": "Allow about 5–5½ hours through the approach to stadium entry; the game and dinner are extra.",
+    "suggestedStartTime": "09:30",
+    "runningLateGuidance": "Protect the 1:30 p.m. departure from Buena Vista. First shorten Ferry Building browsing and the Nob Hill pause. Next skip the Lombard descent and continue down Hyde to Beach Street. Replace a long Buena Vista lunch with a quick meal if necessary. If delayed, head directly to Oracle Park by taxi/rideshare and allow 45–60 minutes for pickup, traffic and the final walk. Do not add Ghirardelli, the Presidio or the bridge to this route.",
     "directionsUrl": null,
-    "departureTime": null,
-    "departureGuidance": "The departure target and transport plan will be set once the game and arrival time are confirmed.",
-    "arrivalTime": null,
-    "milestones": [],
-    "optionalExtensionPlaceIds": [
-      "crissy-field",
-      "golden-gate-viewpoint"
+    "departureTime": "13:30",
+    "departureGuidance": "Leave Buena Vista by 1:30 p.m. Take a taxi or rideshare toward Oracle Park, allowing 45–60 minutes including pickup, traffic and the final walk. Expect to reach the park around 2:15–2:30 p.m., ahead of the 3 p.m. arrival target. Follow your driver’s legal drop-off point and walk the final stretch.",
+    "arrivalTime": "15:00",
+    "milestones": [
+      {
+        "label": "Start at the Ferry Building",
+        "time": "09:30",
+        "guidance": "Suggested start outside the clock tower. Keep browsing to about 35 minutes."
+      },
+      {
+        "label": "California Line",
+        "time": "10:15",
+        "guidance": "Reach California & Drumm; allow 20 minutes to board and about 15 minutes riding to Powell."
+      },
+      {
+        "label": "Lombard Street",
+        "time": "11:55",
+        "guidance": "Twenty minutes includes the pedestrian descent to Leavenworth."
+      },
+      {
+        "label": "Lunch at Buena Vista",
+        "time": "12:30",
+        "guidance": "Allow an hour including the queue. If you arrive late, shorten lunch rather than the stadium buffer."
+      },
+      {
+        "label": "Leave for Oracle Park",
+        "time": "13:30",
+        "guidance": "Take a taxi/rideshare and allow 45–60 minutes including pickup and the final walk."
+      },
+      {
+        "label": "Reach Oracle Park",
+        "time": "14:30",
+        "guidance": "Expected arrival is around 2:15–2:30 p.m.; keep 3 p.m. as the latest target. Allow around 20 minutes for the exterior and approaching entry, then use the pregame buffer for security, food and your seat."
+      },
+      {
+        "label": "First pitch",
+        "time": "16:20",
+        "guidance": "Check your ticket for any schedule changes."
+      },
+      {
+        "label": "Dinner at EPIC Steak",
+        "time": "19:00",
+        "guidance": "Allow approximately 20–25 minutes walking north along the Embarcadero, plus time to exit the stadium. You may need to leave the game early."
+      }
     ],
+    "optionalExtensionPlaceIds": [],
     "related": [
       {
         "kind": "activity",
         "id": "sunday-giants"
+      },
+      {
+        "kind": "sharedPlan",
+        "id": "sunday-dinner"
       }
     ],
     "stops": [
       {
         "placeId": "ferry-building",
-        "guidance": null,
+        "guidance": "Start outside the Ferry Building beneath the clock tower, facing Market Street. Browse and get something to eat before leaving. This is a suggested starting point, not an arranged group meetup.",
         "flag": null,
         "foodNearbyIds": [],
-        "durationMinutes": null
+        "durationMinutes": 35
       },
       {
         "placeId": "cable-car",
-        "guidance": "Boarding point, line, and queue guidance will be added before the trip.",
-        "flag": null,
+        "guidance": "Board the California Line toward Van Ness at California & Drumm and get off at California & Powell. Allow another 20 minutes for waiting and boarding. If the wait exceeds 25 minutes or service is disrupted, use a taxi/rideshare to Huntington Park and continue from Nob Hill.",
+        "flag": "recommended",
         "foodNearbyIds": [],
-        "durationMinutes": null
+        "durationMinutes": 15
       },
       {
         "placeId": "nob-hill",
-        "guidance": null,
+        "guidance": "From California & Powell, walk west for about 5 minutes to Huntington Park. Pause around the park and Grace Cathedral exterior. Continue west along California Street, then north on Hyde toward Lombard; allow about 40 minutes for this hilly walk.",
         "flag": null,
         "foodNearbyIds": [],
-        "durationMinutes": null
+        "durationMinutes": 20
       },
       {
         "placeId": "lombard-street",
-        "guidance": null,
+        "guidance": "Arrive at Lombard & Hyde, at the top of the crooked block. Use the pedestrian steps beside the road to descend to Leavenworth for the view looking uphill. Continue north on Leavenworth, then west on Beach to Buena Vista; allow another 15 minutes. Stay on the sidewalks and keep the roadway clear.",
         "flag": null,
         "foodNearbyIds": [
           "buena-vista"
         ],
-        "durationMinutes": null
+        "durationMinutes": 20
       },
       {
         "placeId": "buena-vista",
-        "guidance": null,
-        "flag": null,
+        "guidance": "Use this as the lunch and refreshment break: allow roughly 20 minutes for waiting and 40 minutes to order, eat and settle up. If the queue would consume your lunch break, choose somewhere convenient nearby and continue; no table is reserved. Aim to start lunch by 12:30 p.m. and leave by 1:30 p.m. Arrange a taxi/rideshare from a legal nearby pickup point toward Oracle Park.",
+        "flag": "skipIfLate",
         "foodNearbyIds": [],
-        "durationMinutes": null
+        "durationMinutes": 60
       },
       {
         "placeId": "oracle-park",
-        "guidance": "Use the Giants guide for the group meeting point and arrival details.",
-        "flag": null,
+        "guidance": "Aim to reach the ballpark exterior at 3 p.m. Use Willie Mays Plaza as an orientation point, then follow your mobile ticket and staff directions to the appropriate entrance. Allow about 20 minutes for the exterior and approaching entry; security, food and finding your seat use the remaining pregame buffer. There is no organized meetup.",
+        "flag": "recommended",
         "foodNearbyIds": [],
-        "durationMinutes": null
+        "durationMinutes": 20
       }
     ]
   },
   "activityCard": {
-    "id": "sunday-giants",
-    "slug": "sunday-giants",
-    "name": "Giants at Oracle Park",
-    "status": "draft",
-    "shortDescription": "An option for Sunday. Game details and tickets are still to be confirmed.",
+    "id": "waymo-ride",
+    "slug": "waymo-ride",
+    "name": "Waymo Ride",
+    "status": "ready",
+    "shortDescription": "A ride through San Francisco with no human behind the wheel turns getting around into an experience of its own.",
     "image": null,
-    "date": "2026-09-13",
+    "date": null,
     "schedule": null,
-    "placeId": "oracle-park",
+    "placeId": null,
     "durationMinutes": null,
-    "bestFor": "A relaxed group afternoon.",
-    "related": [
-      {
-        "kind": "guide",
-        "id": "sunday"
-      }
-    ],
-    "meetingPlanId": "giants-meetup",
-    "afterPlanId": "sunday-dinner",
+    "bestFor": "Curious travelers and anyone interested in technology in everyday life.",
+    "related": [],
+    "meetingPlanId": null,
+    "afterPlanId": null,
     "arrivalTime": null,
     "externalUrl": null,
     "infoBlocks": [
       {
-        "id": "transport",
-        "title": "Getting there",
-        "text": null
+        "id": "experience",
+        "title": "What to Look For",
+        "text": "Watch the passenger screen show the route and what the Waymo Driver sees as you travel through the city."
       },
       {
-        "id": "entry",
-        "title": "Entry & bags",
-        "text": null
-      },
-      {
-        "id": "weather",
-        "title": "Layers & weather",
-        "text": null
-      },
-      {
-        "id": "food",
-        "title": "Stadium food",
-        "text": null
-      },
-      {
-        "id": "view",
-        "title": "Waterfront & views",
-        "text": null
+        "id": "getting-started",
+        "title": "Taking a Ride",
+        "text": "Download the Waymo app, create an account and enter your destination to check available rides. Follow the app’s pickup instructions, unlock the car through the app, buckle up and press Start Ride."
       }
     ],
     "durationLabel": null,
-    "whyGo": null,
-    "optional": false,
+    "whyGo": "A chance to try autonomous driving firsthand, with the city outside and the car’s view of its surroundings on the passenger screen.",
+    "optional": true,
     "neighborhoodId": null,
     "directionsUrl": null
   },
   "outingCard": {
     "id": "sausalito-ferry",
     "slug": "sausalito-ferry",
-    "name": "Sausalito by ferry",
+    "name": "Sausalito by Ferry",
     "date": "2026-09-14",
-    "shortDescription": "A ferry outing with time for lunch and a waterfront walk.",
-    "bestFor": "A small group of 4–6 people.",
+    "shortDescription": "A ferry crossing, a waterfront wander and lunch in Sausalito: a relaxed way to see the bay from the water.",
+    "bestFor": "Travelers who prefer a waterfront stroll to a long ride.",
     "placeId": null,
-    "durationLabel": null,
-    "status": "draft",
+    "durationLabel": "Allow 4–6 hours, starting and finishing at the Ferry Building.",
+    "status": "ready",
     "image": null,
     "schedule": null,
     "durationMinutes": null,
-    "whyGo": null,
-    "optional": false,
+    "whyGo": "The crossing is part of the pleasure, with a different perspective on San Francisco and time ashore to explore.",
+    "optional": true,
     "neighborhoodId": null,
-    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Sausalito%2C%20California",
-    "related": [],
+    "directionsUrl": "https://www.google.com/maps/dir/?api=1&destination=Golden%20Gate%20Ferry%20Terminal%2C%20San%20Francisco",
+    "related": [
+      {
+        "kind": "place",
+        "id": "ferry-building"
+      }
+    ],
     "meetingPlanId": null,
     "afterPlanId": null,
     "arrivalTime": null,
@@ -235,23 +262,28 @@
     "infoBlocks": [
       {
         "id": "detail-1",
-        "title": "Outbound ferry",
-        "text": null
+        "title": "Outbound Ferry",
+        "text": "Use Golden Gate Ferry from the San Francisco Ferry Building to Sausalito. One weekday option is 10:15 a.m., arriving at 10:45 a.m. Aim to reach the terminal 20–30 minutes beforehand and follow the posted departure gate. Check the current schedule before leaving."
       },
       {
         "id": "detail-2",
-        "title": "Return ferry",
-        "text": null
+        "title": "Return Ferry",
+        "text": "Return from the landing at Humboldt & Anchor in downtown Sausalito. The published weekday timetable offers 1:35 p.m. → 2:05 p.m. in San Francisco, or 3:35 p.m. → 4:05 p.m. for a longer visit. Pick your return before lunch and allow another 20–30 minutes for boarding. If you miss it, check the next sailing; do not build the outing around the final boat."
       },
       {
         "id": "detail-3",
         "title": "Lunch",
-        "text": null
+        "text": "Choose a cafe or restaurant that appeals to you while exploring downtown. Leave time to order and eat without rushing back to the ferry; no restaurant or group table is booked."
       },
       {
         "id": "detail-4",
-        "title": "Waterfront walk",
-        "text": null
+        "title": "Waterfront Walk",
+        "text": "From the landing, explore the nearby waterfront and follow Bridgeway toward Princess Street and the southern promenade. Turn back whenever you like. Keeping the walk close to downtown leaves plenty of time for browsing and lunch."
+      },
+      {
+        "id": "tickets",
+        "title": "Tickets & Backup",
+        "text": "Buy the appropriate Golden Gate Ferry ticket or use a supported transit payment method. If ferry service is disrupted, check current land-transport options before committing to the crossing; a taxi or rideshare back is a separate expense. Bring a layer for time on the water."
       }
     ]
   },
@@ -259,18 +291,18 @@
     "id": "north-beach",
     "slug": "north-beach",
     "name": "North Beach",
-    "shortDescription": "Connect a bookstore stop with a nearby meal.",
-    "status": "draft",
+    "shortDescription": "Italian cafes, independent bookselling and Beat Generation history give North Beach a lively, distinctive character around Columbus Avenue.",
+    "status": "ready",
     "image": null,
-    "whyGo": null,
+    "whyGo": "City Lights is a good reason to come, with the neighborhood’s literary history continuing beyond the bookshop into its streets and cafes. Leave room to browse and choose a coffee or meal around Columbus Avenue. Washington Square offers an outdoor pause among the surrounding neighborhood streets.",
     "related": [
       {
         "kind": "place",
         "id": "city-lights"
       },
       {
-        "kind": "place",
-        "id": "original-joes"
+        "kind": "guide",
+        "id": "onlyInSf"
       },
       {
         "kind": "guide",
@@ -281,29 +313,46 @@
   "practicalTipCard": {
     "id": "cable-cars",
     "slug": "cable-cars",
-    "name": "Cable cars",
+    "name": "Cable Cars",
     "category": "transport",
-    "shortDescription": "Check the operator’s payment guidance before the ride. The Sunday boarding point and line are still being finalized.",
+    "shortDescription": "Our Sunday routes use the California Line from California & Drumm to California & Powell, climbing toward Nob Hill.",
     "externalUrl": "https://www.sfmta.com/fares/cable-car-single-ride",
     "externalLabel": "Cable-car fares & payment",
-    "status": "draft",
+    "status": "ready",
     "image": null,
     "infoBlocks": [
       {
         "id": "detail-1",
-        "title": "Useful routes",
-        "text": null
+        "title": "Our Sunday Ride",
+        "text": "Board at California & Drumm on a California Line car toward Van Ness. Get off at California & Powell for Nob Hill. This is the Cable Car ride used by both Sunday routes."
       },
       {
         "id": "detail-2",
-        "title": "Queue guidance",
-        "text": null
+        "title": "Queue Guidance",
+        "text": "Allow about 20 minutes for waiting and boarding as a planning buffer. If the wait looks longer than 25 minutes, follow the Sunday route’s taxi or rideshare alternative toward Huntington Park on Nob Hill."
+      },
+      {
+        "id": "payment",
+        "title": "Before Boarding",
+        "text": "Buy a Cable Car ticket before boarding. A single-ride ticket covers one direction with no transfers. Check the linked page for purchase options."
       }
     ],
     "related": [
       {
         "kind": "guide",
         "id": "sunday"
+      },
+      {
+        "kind": "place",
+        "id": "cable-car"
+      },
+      {
+        "kind": "route",
+        "id": "sunday-classic"
+      },
+      {
+        "kind": "route",
+        "id": "sunday-both"
       }
     ]
   },
@@ -317,8 +366,8 @@
     "sections": [
       {
         "id": "ideas",
-        "title": "Choose your pace",
-        "description": "Optional ideas before Dreamforce. These are not required hosted activities.",
+        "title": "Choose Your Pace",
+        "description": "Salesforce and client groups often organize these same outings. Let us know if you’d like to join one of them, or check the WhatsApp group for details.",
         "presentation": "cards",
         "entries": [
           {
@@ -343,15 +392,21 @@
   },
   "sharedPlanCard": {
     "id": "sunday-dinner",
-    "name": "Sunday dinner",
-    "shortDescription": "A shared dinner is planned; venue and timing are to be confirmed.",
+    "name": "Sunday Dinner — EPIC Steak",
+    "shortDescription": "Dinner together on the Embarcadero, with steaks and Bay Bridge views to round off our first Sunday in San Francisco.",
     "slug": "sunday-dinner",
-    "status": "draft",
+    "status": "ready",
     "image": null,
-    "schedule": null,
+    "schedule": {
+      "date": "2026-09-13",
+      "startTime": "19:00",
+      "endTime": null,
+      "endDate": null,
+      "timeZone": "America/Los_Angeles"
+    },
     "subject": null,
     "meetingPlaceId": null,
-    "instructions": null
+    "instructions": "Sunday, September 13: dinner at EPIC Steak at 7 p.m., 369 The Embarcadero, San Francisco. From Oracle Park, allow approximately 20–25 minutes to walk north along the Embarcadero, passing under the Bay Bridge to reach EPIC. Allow extra time to get out of the ballpark and through the crowds. You may need to leave before the game ends to reach dinner on time."
   },
   "dayPlan": {
     "date": "2026-09-13",
@@ -376,22 +431,22 @@
     "notices": []
   },
   "legacyAgendaCard": {
-    "id": "tue-planning-session",
+    "id": "tue-an-event-driven-multi-cloud",
     "eventCategory": "suggested",
-    "title": "Inter @ Salesforce Tower — Agentic CRM Ideation",
-    "date": "2026-06-02",
-    "startTime": "09:00",
-    "endTime": "12:00",
-    "room": null,
-    "area": "Salesforce Tower",
-    "type": "Planning Session",
+    "title": "An Event-Driven, Multi-Cloud Growth Engine for FINS",
+    "date": "2026-09-15",
+    "startTime": "08:30",
+    "endTime": "09:10",
+    "room": "Theatre 9 · Metreon AMC, L3",
+    "area": "Financial Services",
+    "type": "Theater Session",
     "topic": null,
-    "summary": "A morning with the Salesforce team to discuss agentic marketing, hyperpersonalization, intelligent orchestration, marketing operations, and our roadmap.",
+    "summary": "Gerber Life shares how it built an event-driven, multi-cloud growth engine across five product lines in under a year.",
     "participants": null,
     "registrationRequired": false,
     "transitionWarning": null,
-    "mapsUrl": "https://maps.google.com/?q=333+W+Wolf+Point+Plaza,+Chicago,+IL+60654",
-    "url": null,
+    "mapsUrl": "https://maps.google.com/?q=Metreon,+135+4th+St,+San+Francisco,+CA+94103",
+    "url": "https://event.salesforce.com/widget/plus/df26/1788623312409001h74x/session/1779838595315001GLMg",
     "spotifyUrl": null
   }
 }

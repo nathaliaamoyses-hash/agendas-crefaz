@@ -20,3 +20,20 @@ export function ExternalAction({ href, children }) {
 export function Fact({ label, children }) {
   return <div><dt>{label}</dt><dd>{children || copy.pending}</dd></div>
 }
+
+// Editorial fields remain plain strings; preserve paragraphs and render bullet lines semantically.
+export function TextContent({ text }) {
+  if (!text) return null
+  const groups = []
+  for (const line of text.split('\n').map(line => line.trim()).filter(Boolean)) {
+    if (line.startsWith('## ')) {
+      groups.push({ heading: true, bullet: false, lines: [line.slice(3)] })
+      continue
+    }
+    const bullet = /^[•*-]\s+/.test(line)
+    const last = groups.at(-1)
+    if (bullet && last?.bullet) last.lines.push(line.replace(/^[•*-]\s+/, ''))
+    else groups.push({ bullet, lines: [bullet ? line.replace(/^[•*-]\s+/, '') : line] })
+  }
+  return groups.map((group, i) => group.heading ? <h4 className="editorial-subheading" key={i}>{group.lines[0]}</h4> : group.bullet ? <ul className="editorial-bullets" key={i}>{group.lines.map((line, j) => <li key={j}>{line}</li>)}</ul> : <p key={i}>{group.lines[0]}</p>)
+}

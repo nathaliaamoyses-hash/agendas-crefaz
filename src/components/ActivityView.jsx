@@ -1,7 +1,7 @@
 import { sfGuideCopy } from '../data/sfGuides.js'
 import RelatedContent from './RelatedContent.jsx'
 import { contentCopy as copy } from '../data/sunday.js'
-import { ContentImage, DraftLabel, ExternalAction, Fact } from './ContentPrimitives.jsx'
+import { ContentImage, DraftLabel, ExternalAction, Fact, TextContent } from './ContentPrimitives.jsx'
 import { formatEventDate } from '../utils/date.js'
 import PlaceCard from './PlaceCard.jsx'
 import SharedPlanCard from './SharedPlanCard.jsx'
@@ -23,7 +23,7 @@ export default function ActivityView({ activity, sources, variant = 'outing' }) 
       </header>
       {activity.whyGo && <section className="route-section"><h2>{sfGuideCopy.whyGo}</h2><p>{activity.whyGo}</p></section>}
       <dl className="content-facts">
-        <Fact label={isGame ? copy.gameDate : sfGuideCopy.plannedDate}>{(schedule?.date ?? activity.date) && formatEventDate(schedule?.date ?? activity.date)}</Fact>
+        {(schedule?.date ?? activity.date) && <Fact label={isGame ? copy.gameDate : sfGuideCopy.plannedDate}>{formatEventDate(schedule?.date ?? activity.date)}</Fact>}
         {(isGame || schedule) && <Fact label={isGame ? copy.gameTime : sfGuideCopy.start}>{schedule?.startTime}</Fact>}
         {(isGame || activity.arrivalTime) && <Fact label={copy.arrival}>{activity.arrivalTime}</Fact>}
         <Fact label={copy.duration}>{activity.durationLabel ?? (activity.durationMinutes != null ? `${activity.durationMinutes} ${copy.minutes}` : null)}</Fact>
@@ -32,7 +32,7 @@ export default function ActivityView({ activity, sources, variant = 'outing' }) 
       <ExternalAction href={activity.externalUrl}>{copy.website}</ExternalAction>
       {venue && <PlaceCard place={venue} neighborhoods={sources.neighborhood} headingLevel={2} />}
       {meeting && <section className="route-section"><h2>{copy.meetingPoint}</h2><SharedPlanCard plan={meeting} sources={sources} meeting /></section>}
-      <section className="route-section"><h2>{isGame ? copy.gameDetails : sfGuideCopy.detailsTitle}</h2><div className="content-card-grid">{activity.infoBlocks.map(block => <article className="info-card" key={block.id}><h3>{block.title}</h3><p>{block.text ?? copy.detailsSoon}</p></article>)}</div></section>
+      <section className="route-section"><h2>{isGame ? copy.gameDetails : sfGuideCopy.detailsTitle}</h2><div className="content-card-grid">{activity.infoBlocks.map(block => <article className="info-card" key={block.id}><h3>{block.title}</h3><TextContent text={block.text} /></article>)}</div></section>
       <RelatedContent references={activity.related} sources={sources} />
     </div>
   )

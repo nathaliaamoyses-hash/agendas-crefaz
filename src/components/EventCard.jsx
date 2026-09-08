@@ -9,14 +9,14 @@ const CATEGORY_LABELS = {
   social:    'Get together',
 }
 
-export default function EventCard({ event, isFavorited, onToggleFavorite, onSelect }) {
+export default function EventCard({ event, recorded = false, isFavorited, onToggleFavorite, onSelect }) {
   const { accent, tint } = categoryColors[event.eventCategory] || categoryColors.suggested
-  const label = CATEGORY_LABELS[event.eventCategory] || null
+  const label = recorded ? event.topic : event.id.startsWith('br-') ? event.topic : CATEGORY_LABELS[event.eventCategory] || null
 
   const locationParts = []
   if (event.room) locationParts.push(event.room)
   if (event.area) locationParts.push(event.area)
-  const hasLocation = locationParts.length > 0
+  const hasLocation = !recorded && locationParts.length > 0
   const hasIndicators = event.registrationRequired || event.transitionWarning
   const showRow3 = hasLocation || hasIndicators
 
@@ -38,7 +38,7 @@ export default function EventCard({ event, isFavorited, onToggleFavorite, onSele
     >
       <button type="button" className="absolute inset-0 rounded-lg event-open" aria-label={event.title} onClick={() => onSelect(event)} />
       {/* Star — top-right, above the full-card detail button. */}
-      <button
+      {!recorded && <button
         type="button"
         onClick={handleStarClick}
         aria-label={isFavorited ? 'Remove from My Schedule' : 'Add to My Schedule'}
@@ -56,12 +56,12 @@ export default function EventCard({ event, isFavorited, onToggleFavorite, onSele
         }}
       >
         {isFavorited ? '★' : '☆'}
-      </button>
+      </button>}
 
       {/* Row 1 — time */}
       <div className="pr-10 pointer-events-none relative">
         <span className="text-sm" style={{ color: '#374151' }}>
-          {event.startTime}–{event.endTime}
+          {!recorded && `${event.startTime}–${event.endTime}`}
         </span>
       </div>
 

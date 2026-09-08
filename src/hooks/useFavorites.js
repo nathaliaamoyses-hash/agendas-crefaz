@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
-const STORAGE_KEY = 'cnx-favorites'
+import { client } from '#client-config'
+const STORAGE_KEY = client.favoritesKey
 
 function readInitial() {
   try {

@@ -5,6 +5,9 @@ export const earlyArrivalCard = {
   path: '/sf',
 }
 
+// Prioritize shared evening arrangements on these trip days.
+export const eveningFirstDates = ['2026-09-13', '2026-09-15']
+
 export const todayCopy = {
   today: 'Today', preview: 'Trip preview', recap: 'Your week in review', selected: 'Your day plan',
   timezone: 'SAN FRANCISCO TIME', dateLabel: 'Choose a trip day', returnToday: 'Back to today',

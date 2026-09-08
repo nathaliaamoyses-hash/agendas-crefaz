@@ -1,5 +1,5 @@
 import { trip } from '../data/trip.js'
-import { todayCopy as copy, earlyArrivalCard } from '../data/today.js'
+import { todayCopy as copy, earlyArrivalCard, eveningFirstDates } from '../data/today.js'
 import { events } from '../data/events.js'
 import { createContentSources, dayPlans } from '../data/content/index.js'
 import { formatEventDate } from '../utils/date.js'
@@ -36,6 +36,10 @@ export default function TodaySection({ selectedDate, onDateChange }) {
   const context = period === 'before' ? copy.beforeTrip : period === 'after' ? copy.afterTrip : !isToday ? copy.previewDay : null
   const empty = !day.agendaPending && ['agenda', 'primary', 'secondary', 'evening', 'notices'].every(key => day[key].length === 0)
   const earlyArrival = date < earlyArrivalCard.beforeDate
+  const groupEntries = Object.entries(copy.groups)
+  const orderedGroups = eveningFirstDates.includes(date)
+    ? [...groupEntries.filter(([key]) => key === 'evening'), ...groupEntries.filter(([key]) => key !== 'evening')]
+    : groupEntries
   return (
     <section className="today-section" aria-labelledby="today-title">
       <div className="section-heading">
@@ -52,7 +56,7 @@ export default function TodaySection({ selectedDate, onDateChange }) {
       </div>
       <div className="today-plan" aria-live="polite" aria-atomic="true">
         <p className="today-date"><time dateTime={date}>{formatEventDate(date)}</time></p>
-        {Object.entries(copy.groups).map(([key, label]) => (
+        {orderedGroups.map(([key, label]) => (
           (day[key].length > 0 || (key === 'agenda' && day.agendaPending)) && (
             <section className={`today-group today-group-${key}`} key={key} aria-labelledby={`today-${key}`}>
               <h3 id={`today-${key}`}>{label}</h3>

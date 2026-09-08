@@ -49,7 +49,7 @@ test('neighborhood links resolve in both directions and related cards have desti
     }
   }
   assert.equal(sources.place.find(p=>p.id==='city-lights').neighborhoodId,'north-beach')
-  assert.equal(sources.place.find(p=>p.id==='original-joes').neighborhoodId,'north-beach')
+  assert.equal(sources.place.find(p=>p.id==='original-joes'),undefined)
   assert.equal(sources.place.find(p=>p.id==='amoeba-music').neighborhoodId,'haight-ashbury')
 })
 
@@ -60,7 +60,7 @@ test('Monday and Friday suggestions preserve null schedules and the optional bik
     for(const ref of refs) {
       const activity=resolveContent(ref,sources)
       assert.equal(activity.date,date)
-      assert.equal(activity.status,'draft')
+      assert.equal(activity.status,'ready')
       assert.equal(activity.schedule,null)
       if(activity.placeId) assert.ok(sources.place.find(p=>p.id===activity.placeId))
     }
@@ -69,25 +69,29 @@ test('Monday and Friday suggestions preserve null schedules and the optional bik
   for(const id of ['flower-piano','fort-mason-market']) {
     const activity=sources.activity.find(a=>a.id===id)
     assert.equal(activity.placeId,null)
-    assert.equal(activity.directionsUrl,null)
-    assert.ok(activity.shortDescription.includes('confirmed'))
+    assert.ok(activity.directionsUrl?.startsWith('https://'))
+    assert.ok(!activity.shortDescription.includes('unconfirmed'))
   }
 })
 
-test('unknown branches and unselected bar recommendations have no fabricated map destination', () => {
-  for(const id of ['loris-diner','super-duper','boudin','cocktail-pick','view-bar-pick']) {
-    const place=sources.place.find(p=>p.id===id)
-    assert.equal(place.directionsUrl,null)
-    assert.equal(place.address,null)
+test('selected branches and one bar roundup resolve with legacy aliases', () => {
+  for(const id of ['loris-diner','super-duper','boudin']) {
+    const place=sources.place.find(p=>p.id===id);
+    assert.ok(place.directionsUrl?.startsWith('https://'));
+    assert.ok(place.address);
   }
-  const categories=sfGuidePages.eatDrink.sections.map(section=>section.id)
-  assert.deepEqual(categories,['institutions','quick','if-time','drinks'])
-  assert.equal(sfGuidePages.onlyInSf.sections[0].entries.length,5)
+  assert.equal(sources.place.some(p => ['cocktail-pick','view-bar-pick','cable-car-clothiers'].includes(p.id)), false);
+  const canonical=resolveContent({kind:'place',id:'view-bar-pick'},sources);
+  assert.equal(resolveContent({kind:'place',id:'cocktail-pick'},sources),canonical);
+  assert.deepEqual(canonical.entries.map(ref=>ref.id),['starlite','top-of-the-mark','charmaines']);
+  assert.equal(getRoute('/sf/places/cocktail-pick').contentRef.id,'view-bar-pick');
+  assert.deepEqual(sfGuidePages.eatDrink.sections.map(section=>section.id),['institutions','quick','if-time','drinks']);
+  assert.equal(sfGuidePages.onlyInSf.sections[0].entries.length,6);
 })
 
-test('Practical SF includes maps, transit, ferries, and weather without a live data requirement', () => {
+test('Practical SF includes maps, ferries, and weather without a live data requirement', () => {
   const links=sfGuidePages.practical.sections.find(section=>section.id==='links').entries
-  for(const id of ['city-map','getting-around','ferries','layers']) assert.ok(links.some(ref=>ref.id===id))
+  for(const id of ['city-map','ferries','layers']) assert.ok(links.some(ref=>ref.id===id))
   for(const tip of sources.practicalTip) {
     assert.equal(typeof tip.shortDescription,'string')
     if(tip.externalUrl) assert.equal(new URL(tip.externalUrl).protocol,'https:')

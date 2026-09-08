@@ -19,6 +19,7 @@ export default function SundayPage() {
         <p className="trip-dates"><time dateTime={sunday.date}>{formatEventDate(sunday.date)}</time></p>
         <p className="guide-lede">{copy.introduction}</p>
       </header>
+      <section className="sunday-dinner"><h2>{copy.dinner}</h2><p>{copy.dinnerIntro}</p><SharedPlanCard plan={sources.sharedPlan.find(plan => plan.id === sunday.dinnerId)} sources={sources} /></section>
       <section className="sunday-choices" aria-label={copy.choices}>
         {sunday.choices.map(choice => {
           const content = resolveContent(choice.content, sources)
@@ -36,8 +37,6 @@ export default function SundayPage() {
           </a>
         })}
       </section>
-      <p className="sunday-draft-note">{copy.draft}</p>
-      <section className="sunday-dinner"><h2>{copy.dinner}</h2><p>{copy.dinnerIntro}</p><SharedPlanCard plan={sources.sharedPlan.find(plan => plan.id === sunday.dinnerId)} sources={sources} /></section>
       <SundayPreference sources={sources} />
     </div>
   )

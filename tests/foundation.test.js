@@ -9,23 +9,22 @@ import { resolveContent } from '../src/utils/content.js'
 import { getRoute, pathFromHash, routeHref } from '../src/routing/routes.js'
 import { destinations, sfSections } from '../src/data/guide.js'
 
-test('all agenda categories and saved-event filtering retain the baseline behavior', () => {
-  const favorites = new Set(['wed-main-keynote', 'wed-party-at-cnx', 'deleted-id'])
-  assert.equal(applyFilter(events, 'all', favorites).length, 19)
-  assert.equal(applyFilter(events, 'sessions', favorites).length, 15)
-  assert.equal(applyFilter(events, 'oneOnOne', favorites).length, 2)
-  assert.equal(applyFilter(events, 'social', favorites).length, 2)
-  assert.deepEqual(applyFilter(events, 'mySchedule', favorites).map(e => e.id), [
-    'wed-main-keynote', 'wed-party-at-cnx',
-  ])
-  assert.equal(applyFilter(events, 'mySchedule', new Set()).length, 0)
+test('category filters and saved-event filtering retain their behavior', () => {
+  const fixture = ['suggested', 'also', 'oneOnOne', 'social'].map(eventCategory => ({ id: eventCategory, eventCategory }));
+  const favorites = new Set(['also', 'social', 'deleted']);
+  assert.equal(applyFilter(fixture, 'all', favorites).length, 4);
+  assert.deepEqual(applyFilter(fixture, 'sessions', favorites).map(e => e.id), ['suggested', 'also']);
+  assert.deepEqual(applyFilter(fixture, 'oneOnOne', favorites).map(e => e.id), ['oneOnOne']);
+  assert.deepEqual(applyFilter(fixture, 'social', favorites).map(e => e.id), ['social']);
+  assert.deepEqual(applyFilter(fixture, 'mySchedule', favorites).map(e => e.id), ['also', 'social']);
+  assert.equal(applyFilter(fixture, 'mySchedule', new Set()).length, 0);
 })
 
 test('date groups sort out-of-order data without mutating the original agenda', () => {
   const original = structuredClone(events)
   const groups = groupByDate(events)
-  assert.deepEqual(groups.map(group => group.date), ['2026-06-02', '2026-06-03', '2026-06-04'])
-  assert.deepEqual(groups[0].events.map(event => event.startTime), ['09:00', '14:00', '15:00', '17:00'])
+  assert.deepEqual(groups.map(group => group.date), ['2026-09-15', '2026-09-16', '2026-09-17'])
+  assert.deepEqual(groups[0].events.map(event => event.startTime), ['08:30', '10:00', '12:30', '14:00', '14:30', '16:00'])
   for (const group of groups) {
     const times = group.events.map(event => event.startTime)
     assert.deepEqual(times, [...times].sort())

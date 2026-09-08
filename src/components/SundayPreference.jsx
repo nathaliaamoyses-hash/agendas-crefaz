@@ -1,10 +1,10 @@
 import { useState } from 'react'
 import { sunday, sundayCopy as copy } from '../data/sunday.js'
-import { trip } from '../data/trip.js'
+import { client } from '#client-config'
 import { resolveContent } from '../utils/content.js'
 import { readPreference, savePreference } from '../utils/preference.js'
 
-const storageKey = `${trip.id}:sunday-preference`
+const storageKey = client.sundayPreferenceKey
 const allowed = [...sunday.choices.map(choice => choice.id), 'dinner-only']
 function storage() {
   try { return window.localStorage } catch { return null }

@@ -4,7 +4,7 @@
  * Existing agenda events retain their legacy shape until the Dreamforce data migration.
  *
  * @typedef {'draft' | 'ready'} ContentStatus
- * @typedef {'guide' | 'agendaEvent' | 'place' | 'activity' | 'route' | 'neighborhood' | 'sharedPlan' | 'practicalTip' | 'notice'} ContentKind
+ * @typedef {'guide' | 'agendaEvent' | 'place' | 'activity' | 'route' | 'neighborhood' | 'sharedPlan' | 'practicalTip' | 'notice' | 'roundup'} ContentKind
  * @typedef {{ kind: ContentKind, id: string }} ContentReference
  * @typedef {{ id: string, title: string, description: string, path: string, status: ContentStatus }} Guide
  * Guide records use the existing landing-page shape in data/guide.js.
@@ -52,6 +52,7 @@
  *   milestones: RouteMilestone[], optionalExtensionPlaceIds: string[], related: ContentReference[]
  * }} Route
  *
+ * @typedef {{ id: string, name: string, shortDescription: string, introduction: string, status: ContentStatus, image: ContentImage|null, entries: ContentReference[] }} Roundup
  * @typedef {ContentEntry & { whyGo: string|null, related: ContentReference[] }} Neighborhood
  * @typedef {ContentEntry & {
  *   schedule: Schedule|null, subject: ContentReference|null,

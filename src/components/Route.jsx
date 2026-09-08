@@ -1,5 +1,6 @@
 import { contentCopy as copy } from '../data/sunday.js'
 import { ContentImage, DraftLabel, ExternalAction, Fact } from './ContentPrimitives.jsx'
+import RouteMap from './RouteMap.jsx'
 import RouteStop from './RouteStop.jsx'
 import PlaceCard from './PlaceCard.jsx'
 import { contentPath, resolveContent } from '../utils/content.js'
@@ -34,7 +35,7 @@ export default function Route({ route, sources }) {
       <section className="route-outline" aria-label={copy.routeOutline}>
         <h2>{copy.routeOutline}</h2>
         <ol>{route.stops.map(stop => <li key={stop.placeId}>{sources.place.find(place => place.id === stop.placeId)?.name}</li>)}</ol>
-        <ExternalAction href={route.directionsUrl}>{copy.map}</ExternalAction>
+        <RouteMap routeId={route.id} />
         <p className="content-muted">{copy.offlineMaps}</p>
       </section>
       <section className="route-section"><h2>{copy.stops}</h2><ol className="route-stops">{route.stops.map((stop, index) => <RouteStop key={stop.placeId} stop={stop} number={index + 1} sources={sources} />)}</ol></section>

@@ -1,6 +1,7 @@
 import { sfSections } from '../guide.js'
 export { dayPlans } from './dayPlans.js'
 
+import { roundups } from './roundups.js'
 import { places } from './places.js'
 import { activities } from './activities.js'
 import { routes } from './sundayRoutes.js'
@@ -18,6 +19,7 @@ export function createContentSources(agendaEvents = []) {
     agendaEvent: agendaEvents,
     guide: sfSections,
     place: places,
+    roundup: roundups,
     activity: activities,
     route: routes,
     neighborhood: neighborhoods,

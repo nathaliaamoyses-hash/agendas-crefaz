@@ -33,6 +33,7 @@ export default function SfGuidePage({ guideId }) {
         if (!content) return null
         const key = `${reference.kind}:${reference.id}`
         if (section.presentation === 'links') return <ExternalAction key={key} href={content.externalUrl}>{content.externalLabel ?? content.name}</ExternalAction>
+        if (reference.kind === 'place' && ['view-bar-pick', 'cocktail-pick'].includes(reference.id)) return <ReferenceCard key={key} reference={reference} sources={sources} />
         if (reference.kind === 'place') return <PlaceCard key={key} place={content} neighborhoods={sources.neighborhood} linkToDetails />
         if (reference.kind === 'activity') return <ActivityCard key={key} activity={content} sources={sources} />
         if (reference.kind === 'practicalTip') return <PracticalTipCard key={key} tip={content} sources={sources} />

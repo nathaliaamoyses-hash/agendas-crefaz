@@ -7,7 +7,7 @@ import { events } from '../src/data/events.js'
 
 const sources = createContentSources()
 const examples = {
-  _readme: 'Phase 5 examples from current sources. Drafts and legacy examples are not final or verified travel content. Keep IDs stable. See CONTENT-AUTHORING.md.',
+  _readme: 'Current integrated examples. Preserve IDs and nullable fields; Thursday dinner remains TBD. See CONTENT-AUTHORING.md.',
   destinationCard: destinations[1], guideCard: sfSections.find(x => x.id === 'monday'),
   sundayChoiceCard: sunday.choices[2], placeCard: sources.place.find(x => x.id === 'buena-vista'),
   shopCard: sources.place.find(x => x.id === 'city-lights'),

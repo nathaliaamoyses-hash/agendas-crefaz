@@ -1,12 +1,11 @@
-// Page composition references shared source entities.
 export const sfGuidePages = {
   "eatDrink": {
     "eyebrow": "FOOD & DRINK",
-    "framing": "A place for the moment.",
+    "framing": null,
     "sections": [
       {
         "id": "institutions",
-        "title": "San Francisco institutions",
+        "title": "Sit-Down Dining",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -28,7 +27,11 @@ export const sfGuidePages = {
           },
           {
             "kind": "place",
-            "id": "original-joes"
+            "id": "ozumo"
+          },
+          {
+            "kind": "place",
+            "id": "mortons"
           },
           {
             "kind": "place",
@@ -38,7 +41,7 @@ export const sfGuidePages = {
       },
       {
         "id": "quick",
-        "title": "Quick & local",
+        "title": "Casual Stops",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -62,7 +65,7 @@ export const sfGuidePages = {
       },
       {
         "id": "if-time",
-        "title": "If you have time",
+        "title": "Oysters & Seafood",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -74,17 +77,13 @@ export const sfGuidePages = {
       },
       {
         "id": "drinks",
-        "title": "For a drink",
+        "title": "For a Drink",
         "description": null,
         "presentation": "cards",
         "entries": [
           {
             "kind": "place",
             "id": "press-club"
-          },
-          {
-            "kind": "place",
-            "id": "cocktail-pick"
           },
           {
             "kind": "place",
@@ -99,12 +98,12 @@ export const sfGuidePages = {
     ]
   },
   "onlyInSf": {
-    "eyebrow": "LOCAL INSTITUTIONS",
-    "framing": "Worth a detour.",
+    "eyebrow": "SHOPS & LOCAL FINDS",
+    "framing": null,
     "sections": [
       {
         "id": "institutions",
-        "title": "Only in San Francisco",
+        "title": "Shops to Explore",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -122,7 +121,11 @@ export const sfGuidePages = {
           },
           {
             "kind": "place",
-            "id": "cable-car-clothiers"
+            "id": "everlane"
+          },
+          {
+            "kind": "place",
+            "id": "marine-layer"
           },
           {
             "kind": "place",
@@ -134,11 +137,11 @@ export const sfGuidePages = {
   },
   "explore": {
     "eyebrow": "FIND YOUR WAY",
-    "framing": "A route, a landmark, a neighborhood.",
+    "framing": null,
     "sections": [
       {
         "id": "routes",
-        "title": "Start with a route",
+        "title": "Sunday Routes",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -154,13 +157,41 @@ export const sfGuidePages = {
       },
       {
         "id": "landmarks",
-        "title": "Landmarks along the way",
+        "title": "Landmarks & Experiences",
         "description": null,
         "presentation": "cards",
         "entries": [
           {
             "kind": "place",
+            "id": "salesforce-park"
+          },
+          {
+            "kind": "place",
             "id": "ferry-building"
+          },
+          {
+            "kind": "place",
+            "id": "embarcadero"
+          },
+          {
+            "kind": "place",
+            "id": "cable-car"
+          },
+          {
+            "kind": "activity",
+            "id": "waymo-ride"
+          },
+          {
+            "kind": "place",
+            "id": "nob-hill"
+          },
+          {
+            "kind": "place",
+            "id": "lombard-street"
+          },
+          {
+            "kind": "place",
+            "id": "ghirardelli-waterfront"
           },
           {
             "kind": "place",
@@ -173,12 +204,20 @@ export const sfGuidePages = {
           {
             "kind": "place",
             "id": "golden-gate-viewpoint"
+          },
+          {
+            "kind": "place",
+            "id": "oracle-park"
+          },
+          {
+            "kind": "place",
+            "id": "sfmoma"
           }
         ]
       },
       {
         "id": "neighborhoods",
-        "title": "Neighborhood context",
+        "title": "Explore the Neighborhoods",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -216,8 +255,8 @@ export const sfGuidePages = {
     "sections": [
       {
         "id": "ideas",
-        "title": "Choose your pace",
-        "description": "Optional ideas before Dreamforce. These are not required hosted activities.",
+        "title": "Choose Your Pace",
+        "description": "Salesforce and client groups often organize these same outings. Let us know if you’d like to join one of them, or check the WhatsApp group for details.",
         "presentation": "cards",
         "entries": [
           {
@@ -246,8 +285,8 @@ export const sfGuidePages = {
     "sections": [
       {
         "id": "ideas",
-        "title": "A little more San Francisco",
-        "description": "Event-based options depend on confirmed dates and availability.",
+        "title": "A Little More San Francisco",
+        "description": null,
         "presentation": "cards",
         "entries": [
           {
@@ -276,11 +315,11 @@ export const sfGuidePages = {
   },
   "practical": {
     "eyebrow": "USEFUL BETWEEN PLANS",
-    "framing": "A few things to keep handy.",
+    "framing": null,
     "sections": [
       {
         "id": "weather",
-        "title": "Weather",
+        "title": "Layers & Weather",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -292,7 +331,7 @@ export const sfGuidePages = {
       },
       {
         "id": "transport",
-        "title": "Getting around",
+        "title": "Getting Around",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -304,7 +343,7 @@ export const sfGuidePages = {
       },
       {
         "id": "cable-cars",
-        "title": "Cable cars",
+        "title": "Cable Cars",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -316,7 +355,7 @@ export const sfGuidePages = {
       },
       {
         "id": "safety",
-        "title": "City awareness",
+        "title": "City Awareness",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -328,7 +367,7 @@ export const sfGuidePages = {
       },
       {
         "id": "airport",
-        "title": "Airport",
+        "title": "SFO → City",
         "description": null,
         "presentation": "cards",
         "entries": [
@@ -339,18 +378,38 @@ export const sfGuidePages = {
         ]
       },
       {
+        "id": "ferries",
+        "title": "Ferries",
+        "description": null,
+        "presentation": "cards",
+        "entries": [
+          {
+            "kind": "practicalTip",
+            "id": "ferries"
+          }
+        ]
+      },
+      {
+        "id": "city-map",
+        "title": "San Francisco Map",
+        "description": null,
+        "presentation": "cards",
+        "entries": [
+          {
+            "kind": "practicalTip",
+            "id": "city-map"
+          }
+        ]
+      },
+      {
         "id": "links",
-        "title": "Useful links",
+        "title": "Useful Links",
         "description": null,
         "presentation": "links",
         "entries": [
           {
             "kind": "practicalTip",
             "id": "city-map"
-          },
-          {
-            "kind": "practicalTip",
-            "id": "getting-around"
           },
           {
             "kind": "practicalTip",
@@ -372,8 +431,7 @@ export const sfGuidePages = {
       }
     ]
   }
-}
-
+};
 export const sfGuideCopy = {
   "draft": "A curated shortlist in progress. Final details and photos will be added before the trip.",
   "jump": "On this page",

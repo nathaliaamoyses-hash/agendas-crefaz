@@ -1,6 +1,8 @@
 import { useEffect, useRef } from 'react'
 import { formatEventDate } from '../utils/date.js'
 import { useOnlineStatus } from '../hooks/useOnlineStatus.js'
+import { toUtcComponents } from '../utils/calendar.js'
+import { conferenceCopy } from '../data/conference.js'
 import { categoryColors } from '../config.js'
 
 const CATEGORY_LABELS = {
@@ -18,7 +20,7 @@ const calBtnBase = {
   background: '#fff',
 }
 
-export default function EventDetail({ event, isFavorited, onToggleFavorite, onClose }) {
+export default function EventDetail({ event, recorded = false, isFavorited, onToggleFavorite, onClose }) {
   const dialogRef = useRef(null)
   const closeRef = useRef(onClose)
   closeRef.current = onClose
@@ -52,29 +54,11 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
   }, [])
   const isOnline = useOnlineStatus()
   const { accent, tint } = categoryColors[event.eventCategory] || categoryColors.suggested
-  const label = CATEGORY_LABELS[event.eventCategory] || 'Session'
+  const label = recorded ? 'Recorded session' : event.id.startsWith('br-') ? conferenceCopy.views.find(view => view.value === 'brazil').label : CATEGORY_LABELS[event.eventCategory] || 'Session'
 
-  const locationParts = [event.room, event.area].filter(Boolean)
+  const locationParts = [event.room].filter(Boolean)
   const hasLocation = locationParts.length > 0
   const location = locationParts.join(', ')
-
-  // Event times in events.js are America/Chicago wall-clock (CDT, UTC-5) for June 2-4 2026.
-  // We convert to UTC by adding 5h and emit with a 'Z' suffix so calendar apps pin the
-  // correct absolute time regardless of the user's device timezone (many attendees' phones
-  // are on Brasília time, UTC-3). Offset is hardcoded: no DST transition occurs in this window.
-  // Do NOT use runtime-timezone-dependent conversion (e.g. Date.toISOString on a local-parsed
-  // date) — that would apply the host/device offset and break this.
-  function toUtcComponents(date, time) {
-    const [y, mo, d]  = date.split('-').map(Number)
-    const [h, mi]     = time.split(':').map(Number)
-    const utcMs       = Date.UTC(y, mo - 1, d, h + 5, mi)
-    const dt          = new Date(utcMs)
-    const pad         = (n) => String(n).padStart(2, '0')
-    return {
-      compact: `${dt.getUTCFullYear()}${pad(dt.getUTCMonth() + 1)}${pad(dt.getUTCDate())}T${pad(dt.getUTCHours())}${pad(dt.getUTCMinutes())}00Z`,
-      iso:     `${dt.getUTCFullYear()}-${pad(dt.getUTCMonth() + 1)}-${pad(dt.getUTCDate())}T${pad(dt.getUTCHours())}:${pad(dt.getUTCMinutes())}:00Z`,
-    }
-  }
 
   const startUtc = toUtcComponents(event.date, event.startTime)
   const endUtc   = toUtcComponents(event.date, event.endTime)
@@ -157,7 +141,7 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
                 </h2>
               )}
             </div>
-            <button
+            {!recorded && <button
               type="button"
               onClick={() => onToggleFavorite(event.id)}
               aria-label={isFavorited ? 'Remove from My Schedule' : 'Add to My Schedule'}
@@ -175,7 +159,7 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
               }}
             >
               {isFavorited ? '★' : '☆'}
-            </button>
+            </button>}
           </div>
 
           {/* Category badge — dark text on tint with accent border; avoids white-on-color contrast failure */}
@@ -194,9 +178,9 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
 
           {/* Date / time / location */}
           <div className="mt-3 text-sm" style={{ color: '#374151' }}>
-            <div>{formatEventDate(event.date)}</div>
-            <div>{event.startTime} – {event.endTime}</div>
-            {hasLocation && <div className="mt-1">{locationParts.join(' · ')}</div>}
+            {!recorded && <div>{formatEventDate(event.date)}</div>}
+            {!recorded && <div>{event.startTime} – {event.endTime} · San Francisco time</div>}
+            {!recorded && hasLocation && <div className="mt-1">{locationParts.join(' · ')}</div>}
           </div>
 
           {/* Registration warning */}
@@ -228,6 +212,7 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
             </div>
           )}
 
+          {!recorded && event.area && <p className="mt-3 text-sm">{event.area}</p>}
           {/* Optional metadata */}
           <div className="mt-4 text-sm" style={{ color: '#374151' }}>
             {event.type && (
@@ -238,7 +223,7 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
             )}
             {event.topic && (
               <div className="mb-2">
-                <span className="font-semibold">Topic: </span>
+                <span className="font-semibold">{recorded ? conferenceCopy.audience : event.id.startsWith('br-') ? conferenceCopy.company : 'Topic'}: </span>
                 <span>{event.topic}</span>
               </div>
             )}
@@ -255,12 +240,12 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
             <div
               className="mt-3 text-sm leading-relaxed"
               style={{ color: '#374151' }}
-              dangerouslySetInnerHTML={{ __html: event.summary }}
+              dangerouslySetInnerHTML={{ __html: recorded ? event.summary.replace(/<i>Also (?:airs|runs)[\s\S]*?<\/i>/gi, '').trim() : event.summary }}
             />
           )}
 
           {/* Directions */}
-          {event.mapsUrl && (
+          {!recorded && event.mapsUrl && (
             <div className="mt-4">
               {isOnline ? (
                 <a
@@ -283,7 +268,7 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
           )}
 
           {/* Calendar buttons */}
-          <div className="mt-6 flex flex-wrap gap-2">
+          {!recorded && <div className="mt-6 flex flex-wrap gap-2">
             {isOnline ? (
               <>
                 <a
@@ -349,7 +334,8 @@ export default function EventDetail({ event, isFavorited, onToggleFavorite, onCl
                 )}
               </>
             )}
-          </div>
+          </div>}
+          {recorded && <p className="recorded-introduction">{conferenceCopy.recordedIntroduction} <a href={conferenceCopy.recordedUrl} target="_blank" rel="noreferrer">{conferenceCopy.recordedService}</a>. {event.url && <a href={event.url} target="_blank" rel="noreferrer">{conferenceCopy.sessionDetails} ↗</a>}</p>}
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { useEffect, useRef } from 'react'
+import { client } from '#client-config'
 import { useOnlineStatus } from '../hooks/useOnlineStatus.js'
 import { serviceCopy } from '../data/services.js'
 import PwaStatus from './PwaStatus.jsx'
@@ -11,7 +12,7 @@ export default function AppShell({ route, path, children }) {
   const previousPath = useRef(path)
 
   useEffect(() => {
-    document.title = `${route?.label ?? companionCopy.notFoundTitle} · ${trip.title}`
+    document.title = `${route?.label ?? companionCopy.notFoundTitle} · ${client.agendaTitle}`
     if (previousPath.current !== path) {
       mainRef.current?.focus({ preventScroll: true })
       window.scrollTo(0, 0)

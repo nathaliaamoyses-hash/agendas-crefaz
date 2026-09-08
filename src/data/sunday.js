@@ -9,16 +9,22 @@ export const sunday = {
 }
 
 export const sundayCopy = {
-  eyebrow: 'SUNDAY IN SAN FRANCISCO', title: 'How do you want to spend Sunday?',
-  introduction: 'A day for the city, an afternoon at the ballpark, or a little of both. Choose your route; come together for dinner.',
-  draft: 'The outline is ready to explore. Times, meeting points, and final details are still being confirmed.',
-  back: 'Back to Sunday', dinner: 'Together for dinner', dinnerIntro: 'Whichever option you choose, the shared dinner plan lives here.',
-  choices: 'Three ways to spend Sunday',
-  preference: 'My Sunday preference', preferenceHelp: 'Optional. Saved on this device only; this is not an RSVP and does not notify your host.',
-  dinnerOnly: 'Dinner only', clearPreference: 'Clear preference', preferenceSaved: 'Preference saved on this device.',
-  preferenceUnavailable: 'This preference is kept for this visit only; device storage is unavailable.',
-  preferenceCleared: 'Preference cleared.',
-}
+  "eyebrow": "SUNDAY IN SAN FRANCISCO",
+  "title": "How do you want to spend Sunday?",
+  "introduction": "There’s time to enjoy the city before the conference begins. Spend Sunday out exploring or at the ballpark, and join us for dinner at EPIC Steak that evening.",
+  "draft": "The outline is ready to explore. Times, meeting points, and final details are still being confirmed.",
+  "back": "Back to Sunday",
+  "dinner": "Together for dinner",
+  "dinnerIntro": "Sunday dinner is at EPIC Steak at 7 p.m. Open the shared dinner card for the address and walking guidance from Oracle Park.",
+  "choices": "Three ways to spend Sunday",
+  "preference": "My Sunday preference",
+  "preferenceHelp": "Optional. Saved on this device only; this is not an RSVP and does not notify your host.",
+  "dinnerOnly": "Dinner only",
+  "clearPreference": "Clear preference",
+  "preferenceSaved": "Preference saved on this device.",
+  "preferenceUnavailable": "This preference is kept for this visit only; device storage is unavailable.",
+  "preferenceCleared": "Preference cleared."
+};
 
 export const contentCopy = {
   draft: 'Details pending', pending: 'To be confirmed', detailsSoon: 'Guidance to follow.',

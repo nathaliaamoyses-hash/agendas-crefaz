@@ -1,3 +1,5 @@
+> September 8 integration update: see `INTEGRATION-2026-09-08.md` for the current user-approved content, client-build scope, and recorded/Brazil collections. Historical draft and single-agenda restrictions below are superseded where explicitly noted there.
+
 # Dreamforce / San Francisco companion — agreed workplan
 
 ## Approval gates
