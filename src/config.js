@@ -1,4 +1,4 @@
-import heroImage from './assets/hero.png'; 
+import heroImage from './assets/hero.png';
 
 export const agendaTitle = "Crefaz @ Dreamforce 2026";
 export const clientName = "Crefaz";
@@ -13,7 +13,7 @@ export const teamContacts = [
   { name: "Fabiana", phone: "5511930227247" },
 ];
 
-export const heroImageSrc = heroImage;
+export { heroImage };
 
 export const colors = {
   salesforceBlue: "#F04E23",
