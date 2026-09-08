@@ -2,6 +2,7 @@ import heroImage from './assets/hero.png';
 
 export const agendaTitle = "Crefaz @ Dreamforce 2026";
 export const clientName = "Crefaz";
+export const client = "Crefaz";
 
 export const instructions =
   "Toque em qualquer sessão para ver os detalhes. Favorite os eventos para salvá-los em Minha Agenda.";
