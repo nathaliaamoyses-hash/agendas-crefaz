@@ -379,4 +379,4 @@ body {
 .route-map-scroll{overflow:auto;border:1px solid #d6e1e5;border-radius:12px}.route-map-scroll svg{display:block;width:100%;min-width:680px}
 .map-anchor-key{list-style:decimal;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 28px;padding:16px 16px 16px 30px;font-size:14px}
 .map-directions{list-style:none;padding:0;display:grid;gap:12px}.map-directions li{background:#fff;border:1px solid #d6e1e5;border-radius:10px;padding:12px}.map-directions li>span{display:block;font-size:13px;font-weight:700}
-@media(max-width:500px){.conference-header{padding:20px 16px}.conference-views button{flex:1 1 calc(50% - 6px)}.map-anchor-key{grid-template-columns:1fr}}
+@media(max-width:500px){.conference-header{padding:20px 16px}.conference-contacts{gap:clamp(6px,2vw,10px);flex-wrap:nowrap}.conference-contacts a{font-size:clamp(.75rem,3.5vw,.875rem);white-space:nowrap;flex-shrink:0}.conference-views button{flex:1 1 calc(50% - 6px)}.map-anchor-key{grid-template-columns:1fr}}
