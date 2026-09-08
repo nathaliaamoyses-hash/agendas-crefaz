@@ -2,3 +2,6 @@ node_modules/
 dist/
 .DS_Store
 *.local
+
+# Separate client builds for local review.
+dist-*/

@@ -8,7 +8,7 @@ import { VitePWA } from 'vite-plugin-pwa';
 export default defineConfig(async ({ mode }) => {
   const env = loadEnv(mode, process.cwd(), 'AGENDA_');
   const clientId = process.env.AGENDA_CLIENT || env.AGENDA_CLIENT || 'banco-mercantil';
-  if (clientId !== 'banco-mercantil') throw new Error('This preview currently supports Banco Mercantil. Other client inputs are retained for later integration.');
+  if (!['banco-mercantil', 'acerto'].includes(clientId)) throw new Error(`Unsupported agenda client: ${clientId}`);
   const clientDirectory = resolve(process.cwd(), 'src/data/clients', clientId);
   const { client } = await import(pathToFileURL(resolve(clientDirectory, 'config.js')));
   return {
