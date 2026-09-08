@@ -12,3 +12,6 @@ One repository with separate Cloudflare Pages client builds is now authorized in
 The user approved the local preview and requested Cloudflare deployment on September 8. First publish uses a pages.dev URL; custom-domain migration remains a later step. Build from repository root with npm run build, output dist, AGENDA_CLIENT=banco-mercantil and NODE_VERSION=22. Keep the existing working branch claude/inspiring-volta-u820u for this first build; main and its GitHub Pages workflows are not changed. Other client builds remain disabled until their integration.
 
 Final review changes: Sunday dinner above sightseeing choices; shared Evening first in Home on September 13 and 15; waterfront hero on Home; route sunday-both displayed as Classic SF + Giants at the Park; Brazil Sessions collection label; twelve updated Napa wine recommendations and a styled recommendation heading. Source IDs remain unchanged.
+
+
+PWA icon correction: the user supplied new opaque PNGs after the original transparent artwork darkened when installed. The active installation assets are mercantildf192-v2.png and mercantildf512-v2.png, exact copies of the new uploads. Both are RGB without alpha. Versioned paths refresh the manifest, browser icon and Apple touch icon. Header artwork remains the original M+ logo.
