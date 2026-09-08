@@ -20,7 +20,7 @@ jobs:
 
       - run: npm ci
 
-      - run: npm run build
+      - run: AGENDA_CLIENT=crefaz npm run build
 
       - uses: peaceiris/actions-gh-pages@v4
         with:
